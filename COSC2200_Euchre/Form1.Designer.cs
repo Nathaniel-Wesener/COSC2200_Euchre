@@ -30,11 +30,13 @@
         {
             menuStripForm1 = new MenuStrip();
             toolStripMenuItemControl = new ToolStripMenuItem();
-            toolStripMenuItemInfo = new ToolStripMenuItem();
             toolStripMenuItemNewGame = new ToolStripMenuItem();
+            toolStripMenuItemExit = new ToolStripMenuItem();
+            toolStripMenuItemInfo = new ToolStripMenuItem();
             toolStripMenuItemAbout = new ToolStripMenuItem();
             toolStripMenuItemHowToPlay = new ToolStripMenuItem();
             toolStripMenuItemCredits = new ToolStripMenuItem();
+            buttonExit = new Button();
             menuStripForm1.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,10 +51,23 @@
             // 
             // toolStripMenuItemControl
             // 
-            toolStripMenuItemControl.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemNewGame });
+            toolStripMenuItemControl.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemNewGame, toolStripMenuItemExit });
             toolStripMenuItemControl.Name = "toolStripMenuItemControl";
             toolStripMenuItemControl.Size = new Size(78, 24);
             toolStripMenuItemControl.Text = "Controls";
+            // 
+            // toolStripMenuItemNewGame
+            // 
+            toolStripMenuItemNewGame.Name = "toolStripMenuItemNewGame";
+            toolStripMenuItemNewGame.Size = new Size(224, 26);
+            toolStripMenuItemNewGame.Text = "New Game";
+            // 
+            // toolStripMenuItemExit
+            // 
+            toolStripMenuItemExit.Name = "toolStripMenuItemExit";
+            toolStripMenuItemExit.Size = new Size(224, 26);
+            toolStripMenuItemExit.Text = "Exit";
+            toolStripMenuItemExit.Click += buttonExit_Click;
             // 
             // toolStripMenuItemInfo
             // 
@@ -61,35 +76,43 @@
             toolStripMenuItemInfo.Size = new Size(49, 24);
             toolStripMenuItemInfo.Text = "Info";
             // 
-            // toolStripMenuItemNewGame
-            // 
-            toolStripMenuItemNewGame.Name = "toolStripMenuItemNewGame";
-            toolStripMenuItemNewGame.Size = new Size(224, 26);
-            toolStripMenuItemNewGame.Text = "New Game";
-            // 
             // toolStripMenuItemAbout
             // 
             toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
-            toolStripMenuItemAbout.Size = new Size(224, 26);
+            toolStripMenuItemAbout.Size = new Size(174, 26);
             toolStripMenuItemAbout.Text = "About";
+            toolStripMenuItemAbout.Click += toolStripMenuItemAbout_Click;
             // 
             // toolStripMenuItemHowToPlay
             // 
             toolStripMenuItemHowToPlay.Name = "toolStripMenuItemHowToPlay";
-            toolStripMenuItemHowToPlay.Size = new Size(224, 26);
+            toolStripMenuItemHowToPlay.Size = new Size(174, 26);
             toolStripMenuItemHowToPlay.Text = "How To Play";
+            toolStripMenuItemHowToPlay.Click += toolStripMenuItemHowToPlay_Click;
             // 
             // toolStripMenuItemCredits
             // 
             toolStripMenuItemCredits.Name = "toolStripMenuItemCredits";
-            toolStripMenuItemCredits.Size = new Size(224, 26);
+            toolStripMenuItemCredits.Size = new Size(174, 26);
             toolStripMenuItemCredits.Text = "Credits";
+            toolStripMenuItemCredits.Click += toolStripMenuItemCredits_Click;
+            // 
+            // buttonExit
+            // 
+            buttonExit.Location = new Point(915, 425);
+            buttonExit.Name = "buttonExit";
+            buttonExit.Size = new Size(94, 29);
+            buttonExit.TabIndex = 1;
+            buttonExit.Text = "E&xit";
+            buttonExit.UseVisualStyleBackColor = true;
+            buttonExit.Click += buttonExit_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1021, 466);
+            Controls.Add(buttonExit);
             Controls.Add(menuStripForm1);
             MainMenuStrip = menuStripForm1;
             Name = "Form1";
@@ -109,5 +132,7 @@
         private ToolStripMenuItem toolStripMenuItemAbout;
         private ToolStripMenuItem toolStripMenuItemHowToPlay;
         private ToolStripMenuItem toolStripMenuItemCredits;
+        private ToolStripMenuItem toolStripMenuItemExit;
+        private Button buttonExit;
     }
 }
