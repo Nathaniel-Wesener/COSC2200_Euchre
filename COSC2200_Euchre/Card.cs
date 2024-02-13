@@ -13,6 +13,14 @@ namespace COSC2200_Euchre
         string cardSuiteStr;
         string cardRankStr;
         
+        // TODO: finish comment - NW
+        /// <summary>
+        /// Constructer for a card object. - NW
+        /// </summary>
+        /// <param name="cardSuitNum"></param>
+        /// <param name="cardRankNum"></param>
+        /// <param name="cardSuiteStr"></param>
+        /// <param name="cardRankStr"></param>
         public Card(int cardSuitNum, int cardRankNum, string cardSuiteStr, string cardRankStr) 
         {
             this.cardSuiteNum = cardSuitNum;

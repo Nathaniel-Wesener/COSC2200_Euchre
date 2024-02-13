@@ -8,7 +8,7 @@ namespace COSC2200_Euchre
 {
     internal class Utilities
     {
-
+        // TODO: make a function comment. - NW
         public void ErrorMessage(string message)
         {
             MessageBox.Show("ERROR: " + message);

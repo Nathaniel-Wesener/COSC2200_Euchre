@@ -7,6 +7,8 @@ namespace COSC2200_Euchre
             InitializeComponent();
         }
 
+        // TODO: Make a lot of function comments. - NW
+
         private void toolStripMenuItemAbout_Click(object sender, EventArgs e)
         {
             Form FormAbout = new FormAbout();
