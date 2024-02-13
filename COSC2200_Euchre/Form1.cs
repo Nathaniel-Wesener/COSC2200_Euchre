@@ -31,5 +31,6 @@ namespace COSC2200_Euchre
         {
             System.Windows.Forms.Application.Exit();
         }
+
     }
 }

@@ -9,7 +9,7 @@ namespace COSC2200_Euchre
     internal class Deck
     {
         // TODO: make sure number of cards in a deck is right. - NW
-        const int NumCards = 32;
+        const int NumCards = 24;
         const int NumSuites = 4;
         const string SuiteHearts = "Hearts";
         const string SuiteClubs = "Clubs";

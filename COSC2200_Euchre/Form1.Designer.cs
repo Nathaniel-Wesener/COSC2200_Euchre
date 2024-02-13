@@ -37,7 +37,28 @@
             toolStripMenuItemHowToPlay = new ToolStripMenuItem();
             toolStripMenuItemCredits = new ToolStripMenuItem();
             buttonExit = new Button();
+            groupBoxControls = new GroupBox();
+            buttonNewGame = new Button();
+            groupBoxStats = new GroupBox();
+            labelAIWinCounterDisplay = new Label();
+            labelAIWinCounter = new Label();
+            labelPlayerWinCounterDisplay = new Label();
+            labelPlayerWinCounter = new Label();
+            groupBoxCurrentStats = new GroupBox();
+            labelTricksToWin = new Label();
+            labelAITrickCounterDisplay = new Label();
+            labelPlayerTrickCounterDisplay = new Label();
+            labelAITrickCounter = new Label();
+            labelPlayerTricksCounter = new Label();
+            labelTricksToWinDisplay = new Label();
+            labelCurrentMaker = new Label();
+            labelCurrentMakerDisplay = new Label();
+            labelCurrentTrump = new Label();
+            labelCurrentTrumpDisplay = new Label();
             menuStripForm1.SuspendLayout();
+            groupBoxControls.SuspendLayout();
+            groupBoxStats.SuspendLayout();
+            groupBoxCurrentStats.SuspendLayout();
             SuspendLayout();
             // 
             // menuStripForm1
@@ -46,7 +67,7 @@
             menuStripForm1.Items.AddRange(new ToolStripItem[] { toolStripMenuItemControl, toolStripMenuItemInfo });
             menuStripForm1.Location = new Point(0, 0);
             menuStripForm1.Name = "menuStripForm1";
-            menuStripForm1.Size = new Size(1021, 28);
+            menuStripForm1.Size = new Size(1091, 28);
             menuStripForm1.TabIndex = 0;
             // 
             // toolStripMenuItemControl
@@ -59,13 +80,13 @@
             // toolStripMenuItemNewGame
             // 
             toolStripMenuItemNewGame.Name = "toolStripMenuItemNewGame";
-            toolStripMenuItemNewGame.Size = new Size(224, 26);
+            toolStripMenuItemNewGame.Size = new Size(165, 26);
             toolStripMenuItemNewGame.Text = "New Game";
             // 
             // toolStripMenuItemExit
             // 
             toolStripMenuItemExit.Name = "toolStripMenuItemExit";
-            toolStripMenuItemExit.Size = new Size(224, 26);
+            toolStripMenuItemExit.Size = new Size(165, 26);
             toolStripMenuItemExit.Text = "Exit";
             toolStripMenuItemExit.Click += buttonExit_Click;
             // 
@@ -99,7 +120,7 @@
             // 
             // buttonExit
             // 
-            buttonExit.Location = new Point(915, 425);
+            buttonExit.Location = new Point(20, 61);
             buttonExit.Name = "buttonExit";
             buttonExit.Size = new Size(94, 29);
             buttonExit.TabIndex = 1;
@@ -107,18 +128,201 @@
             buttonExit.UseVisualStyleBackColor = true;
             buttonExit.Click += buttonExit_Click;
             // 
+            // groupBoxControls
+            // 
+            groupBoxControls.Controls.Add(buttonNewGame);
+            groupBoxControls.Controls.Add(buttonExit);
+            groupBoxControls.Location = new Point(12, 31);
+            groupBoxControls.Name = "groupBoxControls";
+            groupBoxControls.Size = new Size(135, 106);
+            groupBoxControls.TabIndex = 1;
+            groupBoxControls.TabStop = false;
+            groupBoxControls.Text = "Game Controls";
+            // 
+            // buttonNewGame
+            // 
+            buttonNewGame.Location = new Point(20, 26);
+            buttonNewGame.Name = "buttonNewGame";
+            buttonNewGame.Size = new Size(94, 29);
+            buttonNewGame.TabIndex = 0;
+            buttonNewGame.Text = "&New Game ";
+            buttonNewGame.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxStats
+            // 
+            groupBoxStats.Controls.Add(labelAIWinCounterDisplay);
+            groupBoxStats.Controls.Add(labelAIWinCounter);
+            groupBoxStats.Controls.Add(labelPlayerWinCounterDisplay);
+            groupBoxStats.Controls.Add(labelPlayerWinCounter);
+            groupBoxStats.Location = new Point(12, 178);
+            groupBoxStats.Name = "groupBoxStats";
+            groupBoxStats.Size = new Size(135, 136);
+            groupBoxStats.TabIndex = 2;
+            groupBoxStats.TabStop = false;
+            groupBoxStats.Text = "Overall Stats";
+            // 
+            // labelAIWinCounterDisplay
+            // 
+            labelAIWinCounterDisplay.AutoSize = true;
+            labelAIWinCounterDisplay.Location = new Point(57, 107);
+            labelAIWinCounterDisplay.Name = "labelAIWinCounterDisplay";
+            labelAIWinCounterDisplay.Size = new Size(17, 20);
+            labelAIWinCounterDisplay.TabIndex = 3;
+            labelAIWinCounterDisplay.Text = "0";
+            // 
+            // labelAIWinCounter
+            // 
+            labelAIWinCounter.AutoSize = true;
+            labelAIWinCounter.Location = new Point(20, 87);
+            labelAIWinCounter.Name = "labelAIWinCounter";
+            labelAIWinCounter.Size = new Size(101, 20);
+            labelAIWinCounter.TabIndex = 2;
+            labelAIWinCounter.Text = "AI game wins:";
+            // 
+            // labelPlayerWinCounterDisplay
+            // 
+            labelPlayerWinCounterDisplay.AutoSize = true;
+            labelPlayerWinCounterDisplay.Location = new Point(57, 55);
+            labelPlayerWinCounterDisplay.Name = "labelPlayerWinCounterDisplay";
+            labelPlayerWinCounterDisplay.Size = new Size(17, 20);
+            labelPlayerWinCounterDisplay.TabIndex = 1;
+            labelPlayerWinCounterDisplay.Text = "0";
+            // 
+            // labelPlayerWinCounter
+            // 
+            labelPlayerWinCounter.AutoSize = true;
+            labelPlayerWinCounter.Location = new Point(6, 35);
+            labelPlayerWinCounter.Name = "labelPlayerWinCounter";
+            labelPlayerWinCounter.Size = new Size(127, 20);
+            labelPlayerWinCounter.TabIndex = 0;
+            labelPlayerWinCounter.Text = "Player game wins:";
+            // 
+            // groupBoxCurrentStats
+            // 
+            groupBoxCurrentStats.Controls.Add(labelCurrentTrumpDisplay);
+            groupBoxCurrentStats.Controls.Add(labelCurrentTrump);
+            groupBoxCurrentStats.Controls.Add(labelCurrentMakerDisplay);
+            groupBoxCurrentStats.Controls.Add(labelCurrentMaker);
+            groupBoxCurrentStats.Controls.Add(labelTricksToWinDisplay);
+            groupBoxCurrentStats.Controls.Add(labelTricksToWin);
+            groupBoxCurrentStats.Controls.Add(labelAITrickCounterDisplay);
+            groupBoxCurrentStats.Controls.Add(labelPlayerTrickCounterDisplay);
+            groupBoxCurrentStats.Controls.Add(labelAITrickCounter);
+            groupBoxCurrentStats.Controls.Add(labelPlayerTricksCounter);
+            groupBoxCurrentStats.Location = new Point(234, 31);
+            groupBoxCurrentStats.Name = "groupBoxCurrentStats";
+            groupBoxCurrentStats.Size = new Size(627, 83);
+            groupBoxCurrentStats.TabIndex = 3;
+            groupBoxCurrentStats.TabStop = false;
+            groupBoxCurrentStats.Text = "Current Game Stats";
+            // 
+            // labelTricksToWin
+            // 
+            labelTricksToWin.AutoSize = true;
+            labelTricksToWin.Location = new Point(204, 23);
+            labelTricksToWin.Name = "labelTricksToWin";
+            labelTricksToWin.Size = new Size(153, 20);
+            labelTricksToWin.TabIndex = 4;
+            labelTricksToWin.Text = "Tricks Needed to Win:";
+            // 
+            // labelAITrickCounterDisplay
+            // 
+            labelAITrickCounterDisplay.AutoSize = true;
+            labelAITrickCounterDisplay.Location = new Point(108, 52);
+            labelAITrickCounterDisplay.Name = "labelAITrickCounterDisplay";
+            labelAITrickCounterDisplay.Size = new Size(17, 20);
+            labelAITrickCounterDisplay.TabIndex = 3;
+            labelAITrickCounterDisplay.Text = "0";
+            // 
+            // labelPlayerTrickCounterDisplay
+            // 
+            labelPlayerTrickCounterDisplay.AutoSize = true;
+            labelPlayerTrickCounterDisplay.Location = new Point(108, 23);
+            labelPlayerTrickCounterDisplay.Name = "labelPlayerTrickCounterDisplay";
+            labelPlayerTrickCounterDisplay.Size = new Size(17, 20);
+            labelPlayerTrickCounterDisplay.TabIndex = 2;
+            labelPlayerTrickCounterDisplay.Text = "0";
+            // 
+            // labelAITrickCounter
+            // 
+            labelAITrickCounter.AutoSize = true;
+            labelAITrickCounter.Location = new Point(6, 52);
+            labelAITrickCounter.Name = "labelAITrickCounter";
+            labelAITrickCounter.Size = new Size(70, 20);
+            labelAITrickCounter.TabIndex = 1;
+            labelAITrickCounter.Text = "AI Tricks: ";
+            // 
+            // labelPlayerTricksCounter
+            // 
+            labelPlayerTricksCounter.AutoSize = true;
+            labelPlayerTricksCounter.Location = new Point(6, 23);
+            labelPlayerTricksCounter.Name = "labelPlayerTricksCounter";
+            labelPlayerTricksCounter.Size = new Size(96, 20);
+            labelPlayerTricksCounter.TabIndex = 0;
+            labelPlayerTricksCounter.Text = "Player Tricks: ";
+            // 
+            // labelTricksToWinDisplay
+            // 
+            labelTricksToWinDisplay.AutoSize = true;
+            labelTricksToWinDisplay.Location = new Point(363, 23);
+            labelTricksToWinDisplay.Name = "labelTricksToWinDisplay";
+            labelTricksToWinDisplay.Size = new Size(25, 20);
+            labelTricksToWinDisplay.TabIndex = 5;
+            labelTricksToWinDisplay.Text = "10";
+            // 
+            // labelCurrentMaker
+            // 
+            labelCurrentMaker.AutoSize = true;
+            labelCurrentMaker.Location = new Point(413, 23);
+            labelCurrentMaker.Name = "labelCurrentMaker";
+            labelCurrentMaker.Size = new Size(105, 20);
+            labelCurrentMaker.TabIndex = 6;
+            labelCurrentMaker.Text = "Current Maker:";
+            // 
+            // labelCurrentMakerDisplay
+            // 
+            labelCurrentMakerDisplay.AutoSize = true;
+            labelCurrentMakerDisplay.Location = new Point(524, 23);
+            labelCurrentMakerDisplay.Name = "labelCurrentMakerDisplay";
+            labelCurrentMakerDisplay.Size = new Size(0, 20);
+            labelCurrentMakerDisplay.TabIndex = 7;
+            // 
+            // labelCurrentTrump
+            // 
+            labelCurrentTrump.AutoSize = true;
+            labelCurrentTrump.Location = new Point(413, 52);
+            labelCurrentTrump.Name = "labelCurrentTrump";
+            labelCurrentTrump.Size = new Size(106, 20);
+            labelCurrentTrump.TabIndex = 8;
+            labelCurrentTrump.Text = "Current Trump:";
+            // 
+            // labelCurrentTrumpDisplay
+            // 
+            labelCurrentTrumpDisplay.AutoSize = true;
+            labelCurrentTrumpDisplay.Location = new Point(524, 52);
+            labelCurrentTrumpDisplay.Name = "labelCurrentTrumpDisplay";
+            labelCurrentTrumpDisplay.Size = new Size(0, 20);
+            labelCurrentTrumpDisplay.TabIndex = 9;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1021, 466);
-            Controls.Add(buttonExit);
+            ClientSize = new Size(1091, 505);
+            Controls.Add(groupBoxCurrentStats);
+            Controls.Add(groupBoxStats);
+            Controls.Add(groupBoxControls);
             Controls.Add(menuStripForm1);
             MainMenuStrip = menuStripForm1;
             Name = "Form1";
             Text = "Super Awesome Euchre Game!";
             menuStripForm1.ResumeLayout(false);
             menuStripForm1.PerformLayout();
+            groupBoxControls.ResumeLayout(false);
+            groupBoxStats.ResumeLayout(false);
+            groupBoxStats.PerformLayout();
+            groupBoxCurrentStats.ResumeLayout(false);
+            groupBoxCurrentStats.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -134,5 +338,23 @@
         private ToolStripMenuItem toolStripMenuItemCredits;
         private ToolStripMenuItem toolStripMenuItemExit;
         private Button buttonExit;
+        private GroupBox groupBoxControls;
+        private Button buttonNewGame;
+        private GroupBox groupBoxStats;
+        private Label labelAIWinCounter;
+        private Label labelPlayerWinCounterDisplay;
+        private Label labelPlayerWinCounter;
+        private Label labelAIWinCounterDisplay;
+        private GroupBox groupBoxCurrentStats;
+        private Label labelPlayerTricksCounter;
+        private Label labelTricksToWin;
+        private Label labelAITrickCounterDisplay;
+        private Label labelPlayerTrickCounterDisplay;
+        private Label labelAITrickCounter;
+        private Label labelCurrentMaker;
+        private Label labelTricksToWinDisplay;
+        private Label labelCurrentTrumpDisplay;
+        private Label labelCurrentTrump;
+        private Label labelCurrentMakerDisplay;
     }
 }
