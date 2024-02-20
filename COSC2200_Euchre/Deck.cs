@@ -47,6 +47,7 @@ namespace COSC2200_Euchre
         {
             string strSuite;
             string strRank;
+            bool red;
 
             if (rank == 14)
             {
@@ -72,21 +73,25 @@ namespace COSC2200_Euchre
             if (suite == 0)
             {
                 strSuite = SuiteHearts;
+                red = true;
             }
             else if (suite == 1)
             {
                 strSuite = SuiteClubs;
+                red = false;
             }
             else if (suite == 2)
             {
                 strSuite = SuiteDiamonds;
+                red = true;
             }
             else
             {
                 strSuite = SuiteSpades;
+                red = false;
             }
 
-            return new Card(suite, rank, strSuite, strRank);
+            return new Card(suite, rank, strSuite, strRank, red);
 
         }
     }

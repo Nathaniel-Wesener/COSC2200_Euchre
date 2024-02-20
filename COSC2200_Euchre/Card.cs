@@ -12,6 +12,7 @@ namespace COSC2200_Euchre
         int cardRankNum;
         string cardSuiteStr;
         string cardRankStr;
+        bool isRedd;
         
         // TODO: finish comment - NW
         /// <summary>
@@ -21,12 +22,13 @@ namespace COSC2200_Euchre
         /// <param name="cardRankNum"></param>
         /// <param name="cardSuiteStr"></param>
         /// <param name="cardRankStr"></param>
-        public Card(int cardSuitNum, int cardRankNum, string cardSuiteStr, string cardRankStr) 
+        public Card(int cardSuitNum, int cardRankNum, string cardSuiteStr, string cardRankStr bool isRed) 
         {
             this.cardSuiteNum = cardSuitNum;
             this.cardRankNum = cardRankNum;
             this.cardSuiteStr = cardSuiteStr;
             this.cardRankStr = cardRankStr;
+            this.isRedd = isRed;
         }
     }
 }
