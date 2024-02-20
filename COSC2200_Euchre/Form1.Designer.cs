@@ -45,16 +45,17 @@
             labelPlayerWinCounterDisplay = new Label();
             labelPlayerWinCounter = new Label();
             groupBoxCurrentStats = new GroupBox();
-            labelTricksToWin = new Label();
+            labelCurrentTrumpDisplay = new Label();
+            labelCurrentTrump = new Label();
+            labelCurrentMakerDisplay = new Label();
+            labelCurrentMaker = new Label();
             labelAITrickCounterDisplay = new Label();
             labelPlayerTrickCounterDisplay = new Label();
             labelAITrickCounter = new Label();
             labelPlayerTricksCounter = new Label();
-            labelTricksToWinDisplay = new Label();
-            labelCurrentMaker = new Label();
-            labelCurrentMakerDisplay = new Label();
-            labelCurrentTrump = new Label();
-            labelCurrentTrumpDisplay = new Label();
+            groupBoxPlayerControls = new GroupBox();
+            groupBoxOpponent = new GroupBox();
+            groupBoxPlayField = new GroupBox();
             menuStripForm1.SuspendLayout();
             groupBoxControls.SuspendLayout();
             groupBoxStats.SuspendLayout();
@@ -120,9 +121,9 @@
             // 
             // buttonExit
             // 
-            buttonExit.Location = new Point(20, 61);
+            buttonExit.Location = new Point(20, 52);
             buttonExit.Name = "buttonExit";
-            buttonExit.Size = new Size(94, 29);
+            buttonExit.Size = new Size(94, 25);
             buttonExit.TabIndex = 1;
             buttonExit.Text = "E&xit";
             buttonExit.UseVisualStyleBackColor = true;
@@ -134,16 +135,16 @@
             groupBoxControls.Controls.Add(buttonExit);
             groupBoxControls.Location = new Point(12, 31);
             groupBoxControls.Name = "groupBoxControls";
-            groupBoxControls.Size = new Size(135, 106);
+            groupBoxControls.Size = new Size(135, 83);
             groupBoxControls.TabIndex = 1;
             groupBoxControls.TabStop = false;
             groupBoxControls.Text = "Game Controls";
             // 
             // buttonNewGame
             // 
-            buttonNewGame.Location = new Point(20, 26);
+            buttonNewGame.Location = new Point(20, 19);
             buttonNewGame.Name = "buttonNewGame";
-            buttonNewGame.Size = new Size(94, 29);
+            buttonNewGame.Size = new Size(94, 27);
             buttonNewGame.TabIndex = 0;
             buttonNewGame.Text = "&New Game ";
             buttonNewGame.UseVisualStyleBackColor = true;
@@ -154,9 +155,9 @@
             groupBoxStats.Controls.Add(labelAIWinCounter);
             groupBoxStats.Controls.Add(labelPlayerWinCounterDisplay);
             groupBoxStats.Controls.Add(labelPlayerWinCounter);
-            groupBoxStats.Location = new Point(12, 178);
+            groupBoxStats.Location = new Point(12, 120);
             groupBoxStats.Name = "groupBoxStats";
-            groupBoxStats.Size = new Size(135, 136);
+            groupBoxStats.Size = new Size(135, 139);
             groupBoxStats.TabIndex = 2;
             groupBoxStats.TabStop = false;
             groupBoxStats.Text = "Overall Stats";
@@ -203,27 +204,50 @@
             groupBoxCurrentStats.Controls.Add(labelCurrentTrump);
             groupBoxCurrentStats.Controls.Add(labelCurrentMakerDisplay);
             groupBoxCurrentStats.Controls.Add(labelCurrentMaker);
-            groupBoxCurrentStats.Controls.Add(labelTricksToWinDisplay);
-            groupBoxCurrentStats.Controls.Add(labelTricksToWin);
             groupBoxCurrentStats.Controls.Add(labelAITrickCounterDisplay);
             groupBoxCurrentStats.Controls.Add(labelPlayerTrickCounterDisplay);
             groupBoxCurrentStats.Controls.Add(labelAITrickCounter);
             groupBoxCurrentStats.Controls.Add(labelPlayerTricksCounter);
-            groupBoxCurrentStats.Location = new Point(234, 31);
+            groupBoxCurrentStats.Location = new Point(153, 31);
             groupBoxCurrentStats.Name = "groupBoxCurrentStats";
-            groupBoxCurrentStats.Size = new Size(627, 83);
+            groupBoxCurrentStats.Size = new Size(926, 83);
             groupBoxCurrentStats.TabIndex = 3;
             groupBoxCurrentStats.TabStop = false;
             groupBoxCurrentStats.Text = "Current Game Stats";
             // 
-            // labelTricksToWin
+            // labelCurrentTrumpDisplay
             // 
-            labelTricksToWin.AutoSize = true;
-            labelTricksToWin.Location = new Point(204, 23);
-            labelTricksToWin.Name = "labelTricksToWin";
-            labelTricksToWin.Size = new Size(153, 20);
-            labelTricksToWin.TabIndex = 4;
-            labelTricksToWin.Text = "Tricks Needed to Win:";
+            labelCurrentTrumpDisplay.AutoSize = true;
+            labelCurrentTrumpDisplay.Location = new Point(524, 52);
+            labelCurrentTrumpDisplay.Name = "labelCurrentTrumpDisplay";
+            labelCurrentTrumpDisplay.Size = new Size(0, 20);
+            labelCurrentTrumpDisplay.TabIndex = 9;
+            // 
+            // labelCurrentTrump
+            // 
+            labelCurrentTrump.AutoSize = true;
+            labelCurrentTrump.Location = new Point(413, 52);
+            labelCurrentTrump.Name = "labelCurrentTrump";
+            labelCurrentTrump.Size = new Size(106, 20);
+            labelCurrentTrump.TabIndex = 8;
+            labelCurrentTrump.Text = "Current Trump:";
+            // 
+            // labelCurrentMakerDisplay
+            // 
+            labelCurrentMakerDisplay.AutoSize = true;
+            labelCurrentMakerDisplay.Location = new Point(524, 23);
+            labelCurrentMakerDisplay.Name = "labelCurrentMakerDisplay";
+            labelCurrentMakerDisplay.Size = new Size(0, 20);
+            labelCurrentMakerDisplay.TabIndex = 7;
+            // 
+            // labelCurrentMaker
+            // 
+            labelCurrentMaker.AutoSize = true;
+            labelCurrentMaker.Location = new Point(413, 23);
+            labelCurrentMaker.Name = "labelCurrentMaker";
+            labelCurrentMaker.Size = new Size(105, 20);
+            labelCurrentMaker.TabIndex = 6;
+            labelCurrentMaker.Text = "Current Maker:";
             // 
             // labelAITrickCounterDisplay
             // 
@@ -261,54 +285,41 @@
             labelPlayerTricksCounter.TabIndex = 0;
             labelPlayerTricksCounter.Text = "Player Tricks: ";
             // 
-            // labelTricksToWinDisplay
+            // groupBoxPlayerControls
             // 
-            labelTricksToWinDisplay.AutoSize = true;
-            labelTricksToWinDisplay.Location = new Point(363, 23);
-            labelTricksToWinDisplay.Name = "labelTricksToWinDisplay";
-            labelTricksToWinDisplay.Size = new Size(25, 20);
-            labelTricksToWinDisplay.TabIndex = 5;
-            labelTricksToWinDisplay.Text = "10";
+            groupBoxPlayerControls.Location = new Point(12, 265);
+            groupBoxPlayerControls.Name = "groupBoxPlayerControls";
+            groupBoxPlayerControls.Size = new Size(1067, 200);
+            groupBoxPlayerControls.TabIndex = 4;
+            groupBoxPlayerControls.TabStop = false;
+            groupBoxPlayerControls.Text = "Your Controls";
             // 
-            // labelCurrentMaker
+            // groupBoxOpponent
             // 
-            labelCurrentMaker.AutoSize = true;
-            labelCurrentMaker.Location = new Point(413, 23);
-            labelCurrentMaker.Name = "labelCurrentMaker";
-            labelCurrentMaker.Size = new Size(105, 20);
-            labelCurrentMaker.TabIndex = 6;
-            labelCurrentMaker.Text = "Current Maker:";
+            groupBoxOpponent.Location = new Point(688, 120);
+            groupBoxOpponent.Name = "groupBoxOpponent";
+            groupBoxOpponent.Size = new Size(391, 139);
+            groupBoxOpponent.TabIndex = 5;
+            groupBoxOpponent.TabStop = false;
+            groupBoxOpponent.Text = "CPU Opponent";
             // 
-            // labelCurrentMakerDisplay
+            // groupBoxPlayField
             // 
-            labelCurrentMakerDisplay.AutoSize = true;
-            labelCurrentMakerDisplay.Location = new Point(524, 23);
-            labelCurrentMakerDisplay.Name = "labelCurrentMakerDisplay";
-            labelCurrentMakerDisplay.Size = new Size(0, 20);
-            labelCurrentMakerDisplay.TabIndex = 7;
-            // 
-            // labelCurrentTrump
-            // 
-            labelCurrentTrump.AutoSize = true;
-            labelCurrentTrump.Location = new Point(413, 52);
-            labelCurrentTrump.Name = "labelCurrentTrump";
-            labelCurrentTrump.Size = new Size(106, 20);
-            labelCurrentTrump.TabIndex = 8;
-            labelCurrentTrump.Text = "Current Trump:";
-            // 
-            // labelCurrentTrumpDisplay
-            // 
-            labelCurrentTrumpDisplay.AutoSize = true;
-            labelCurrentTrumpDisplay.Location = new Point(524, 52);
-            labelCurrentTrumpDisplay.Name = "labelCurrentTrumpDisplay";
-            labelCurrentTrumpDisplay.Size = new Size(0, 20);
-            labelCurrentTrumpDisplay.TabIndex = 9;
+            groupBoxPlayField.Location = new Point(153, 120);
+            groupBoxPlayField.Name = "groupBoxPlayField";
+            groupBoxPlayField.Size = new Size(529, 139);
+            groupBoxPlayField.TabIndex = 6;
+            groupBoxPlayField.TabStop = false;
+            groupBoxPlayField.Text = "The Table";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1091, 505);
+            ClientSize = new Size(1091, 470);
+            Controls.Add(groupBoxPlayField);
+            Controls.Add(groupBoxOpponent);
+            Controls.Add(groupBoxPlayerControls);
             Controls.Add(groupBoxCurrentStats);
             Controls.Add(groupBoxStats);
             Controls.Add(groupBoxControls);
@@ -347,14 +358,15 @@
         private Label labelAIWinCounterDisplay;
         private GroupBox groupBoxCurrentStats;
         private Label labelPlayerTricksCounter;
-        private Label labelTricksToWin;
         private Label labelAITrickCounterDisplay;
         private Label labelPlayerTrickCounterDisplay;
         private Label labelAITrickCounter;
         private Label labelCurrentMaker;
-        private Label labelTricksToWinDisplay;
         private Label labelCurrentTrumpDisplay;
         private Label labelCurrentTrump;
         private Label labelCurrentMakerDisplay;
+        private GroupBox groupBoxPlayerControls;
+        private GroupBox groupBoxOpponent;
+        private GroupBox groupBoxPlayField;
     }
 }
