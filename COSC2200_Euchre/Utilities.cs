@@ -13,7 +13,9 @@ namespace COSC2200_Euchre
         {
             MessageBox.Show("ERROR: " + message);
         }
+
         // TODO: make a function comment. - NW
+        
         public List<Card> PriorityList(Card firstCard, int suiteTrump)
         {
             // TODO: Figure out how to design this function then design it. -NW
@@ -33,5 +35,11 @@ namespace COSC2200_Euchre
 
             return cards;
         }
+
+        public void WinMessage() 
+        {
+            MessageBox.Show("Congratulations You Won!!!!");
+        }
+
     }
 }
