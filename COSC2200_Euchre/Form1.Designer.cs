@@ -56,10 +56,19 @@
             groupBoxPlayerControls = new GroupBox();
             groupBoxOpponent = new GroupBox();
             groupBoxPlayField = new GroupBox();
+            comboBoxSelectTrump = new ComboBox();
+            labelTrumpSelect = new Label();
+            buttonAcceptTrump = new Button();
+            listBoxYourHand = new ListBox();
+            label = new Label();
+            comboBoxPlayCard = new ComboBox();
+            labelPlayCard = new Label();
+            buttonPlayCard = new Button();
             menuStripForm1.SuspendLayout();
             groupBoxControls.SuspendLayout();
             groupBoxStats.SuspendLayout();
             groupBoxCurrentStats.SuspendLayout();
+            groupBoxPlayerControls.SuspendLayout();
             SuspendLayout();
             // 
             // menuStripForm1
@@ -81,13 +90,13 @@
             // toolStripMenuItemNewGame
             // 
             toolStripMenuItemNewGame.Name = "toolStripMenuItemNewGame";
-            toolStripMenuItemNewGame.Size = new Size(165, 26);
+            toolStripMenuItemNewGame.Size = new Size(224, 26);
             toolStripMenuItemNewGame.Text = "New Game";
             // 
             // toolStripMenuItemExit
             // 
             toolStripMenuItemExit.Name = "toolStripMenuItemExit";
-            toolStripMenuItemExit.Size = new Size(165, 26);
+            toolStripMenuItemExit.Size = new Size(224, 26);
             toolStripMenuItemExit.Text = "Exit";
             toolStripMenuItemExit.Click += buttonExit_Click;
             // 
@@ -101,21 +110,21 @@
             // toolStripMenuItemAbout
             // 
             toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
-            toolStripMenuItemAbout.Size = new Size(174, 26);
+            toolStripMenuItemAbout.Size = new Size(224, 26);
             toolStripMenuItemAbout.Text = "About";
             toolStripMenuItemAbout.Click += toolStripMenuItemAbout_Click;
             // 
             // toolStripMenuItemHowToPlay
             // 
             toolStripMenuItemHowToPlay.Name = "toolStripMenuItemHowToPlay";
-            toolStripMenuItemHowToPlay.Size = new Size(174, 26);
+            toolStripMenuItemHowToPlay.Size = new Size(224, 26);
             toolStripMenuItemHowToPlay.Text = "How To Play";
             toolStripMenuItemHowToPlay.Click += toolStripMenuItemHowToPlay_Click;
             // 
             // toolStripMenuItemCredits
             // 
             toolStripMenuItemCredits.Name = "toolStripMenuItemCredits";
-            toolStripMenuItemCredits.Size = new Size(174, 26);
+            toolStripMenuItemCredits.Size = new Size(224, 26);
             toolStripMenuItemCredits.Text = "Credits";
             toolStripMenuItemCredits.Click += toolStripMenuItemCredits_Click;
             // 
@@ -135,7 +144,7 @@
             groupBoxControls.Controls.Add(buttonExit);
             groupBoxControls.Location = new Point(12, 31);
             groupBoxControls.Name = "groupBoxControls";
-            groupBoxControls.Size = new Size(135, 83);
+            groupBoxControls.Size = new Size(425, 83);
             groupBoxControls.TabIndex = 1;
             groupBoxControls.TabStop = false;
             groupBoxControls.Text = "Game Controls";
@@ -208,9 +217,9 @@
             groupBoxCurrentStats.Controls.Add(labelPlayerTrickCounterDisplay);
             groupBoxCurrentStats.Controls.Add(labelAITrickCounter);
             groupBoxCurrentStats.Controls.Add(labelPlayerTricksCounter);
-            groupBoxCurrentStats.Location = new Point(153, 31);
+            groupBoxCurrentStats.Location = new Point(443, 31);
             groupBoxCurrentStats.Name = "groupBoxCurrentStats";
-            groupBoxCurrentStats.Size = new Size(926, 83);
+            groupBoxCurrentStats.Size = new Size(636, 83);
             groupBoxCurrentStats.TabIndex = 3;
             groupBoxCurrentStats.TabStop = false;
             groupBoxCurrentStats.Text = "Current Game Stats";
@@ -287,18 +296,26 @@
             // 
             // groupBoxPlayerControls
             // 
+            groupBoxPlayerControls.Controls.Add(buttonPlayCard);
+            groupBoxPlayerControls.Controls.Add(labelPlayCard);
+            groupBoxPlayerControls.Controls.Add(comboBoxPlayCard);
+            groupBoxPlayerControls.Controls.Add(label);
+            groupBoxPlayerControls.Controls.Add(listBoxYourHand);
+            groupBoxPlayerControls.Controls.Add(buttonAcceptTrump);
+            groupBoxPlayerControls.Controls.Add(labelTrumpSelect);
+            groupBoxPlayerControls.Controls.Add(comboBoxSelectTrump);
             groupBoxPlayerControls.Location = new Point(12, 265);
             groupBoxPlayerControls.Name = "groupBoxPlayerControls";
-            groupBoxPlayerControls.Size = new Size(1067, 200);
+            groupBoxPlayerControls.Size = new Size(670, 200);
             groupBoxPlayerControls.TabIndex = 4;
             groupBoxPlayerControls.TabStop = false;
             groupBoxPlayerControls.Text = "Your Controls";
             // 
             // groupBoxOpponent
             // 
-            groupBoxOpponent.Location = new Point(688, 120);
+            groupBoxOpponent.Location = new Point(688, 265);
             groupBoxOpponent.Name = "groupBoxOpponent";
-            groupBoxOpponent.Size = new Size(391, 139);
+            groupBoxOpponent.Size = new Size(391, 200);
             groupBoxOpponent.TabIndex = 5;
             groupBoxOpponent.TabStop = false;
             groupBoxOpponent.Text = "CPU Opponent";
@@ -307,10 +324,80 @@
             // 
             groupBoxPlayField.Location = new Point(153, 120);
             groupBoxPlayField.Name = "groupBoxPlayField";
-            groupBoxPlayField.Size = new Size(529, 139);
+            groupBoxPlayField.Size = new Size(926, 139);
             groupBoxPlayField.TabIndex = 6;
             groupBoxPlayField.TabStop = false;
             groupBoxPlayField.Text = "The Table";
+            // 
+            // comboBoxSelectTrump
+            // 
+            comboBoxSelectTrump.FormattingEnabled = true;
+            comboBoxSelectTrump.Location = new Point(6, 143);
+            comboBoxSelectTrump.Name = "comboBoxSelectTrump";
+            comboBoxSelectTrump.Size = new Size(151, 28);
+            comboBoxSelectTrump.TabIndex = 1;
+            // 
+            // labelTrumpSelect
+            // 
+            labelTrumpSelect.AutoSize = true;
+            labelTrumpSelect.Location = new Point(6, 107);
+            labelTrumpSelect.Name = "labelTrumpSelect";
+            labelTrumpSelect.Size = new Size(95, 20);
+            labelTrumpSelect.TabIndex = 0;
+            labelTrumpSelect.Text = "Select Trump";
+            // 
+            // buttonAcceptTrump
+            // 
+            buttonAcceptTrump.Location = new Point(6, 35);
+            buttonAcceptTrump.Name = "buttonAcceptTrump";
+            buttonAcceptTrump.Size = new Size(135, 29);
+            buttonAcceptTrump.TabIndex = 2;
+            buttonAcceptTrump.Text = "&Accept Trump";
+            buttonAcceptTrump.UseVisualStyleBackColor = true;
+            // 
+            // listBoxYourHand
+            // 
+            listBoxYourHand.FormattingEnabled = true;
+            listBoxYourHand.ItemHeight = 20;
+            listBoxYourHand.Location = new Point(185, 48);
+            listBoxYourHand.Name = "listBoxYourHand";
+            listBoxYourHand.Size = new Size(211, 124);
+            listBoxYourHand.TabIndex = 3;
+            // 
+            // label
+            // 
+            label.AutoSize = true;
+            label.Location = new Point(185, 23);
+            label.Name = "label";
+            label.Size = new Size(81, 20);
+            label.TabIndex = 4;
+            label.Text = "&Your Hand:";
+            // 
+            // comboBoxPlayCard
+            // 
+            comboBoxPlayCard.FormattingEnabled = true;
+            comboBoxPlayCard.Location = new Point(412, 48);
+            comboBoxPlayCard.Name = "comboBoxPlayCard";
+            comboBoxPlayCard.Size = new Size(151, 28);
+            comboBoxPlayCard.TabIndex = 5;
+            // 
+            // labelPlayCard
+            // 
+            labelPlayCard.AutoSize = true;
+            labelPlayCard.Location = new Point(412, 23);
+            labelPlayCard.Name = "labelPlayCard";
+            labelPlayCard.Size = new Size(138, 20);
+            labelPlayCard.TabIndex = 6;
+            labelPlayCard.Text = "Select Card To Play:";
+            // 
+            // buttonPlayCard
+            // 
+            buttonPlayCard.Location = new Point(412, 82);
+            buttonPlayCard.Name = "buttonPlayCard";
+            buttonPlayCard.Size = new Size(94, 29);
+            buttonPlayCard.TabIndex = 7;
+            buttonPlayCard.Text = "&Play Card";
+            buttonPlayCard.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -334,6 +421,8 @@
             groupBoxStats.PerformLayout();
             groupBoxCurrentStats.ResumeLayout(false);
             groupBoxCurrentStats.PerformLayout();
+            groupBoxPlayerControls.ResumeLayout(false);
+            groupBoxPlayerControls.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -368,5 +457,13 @@
         private GroupBox groupBoxPlayerControls;
         private GroupBox groupBoxOpponent;
         private GroupBox groupBoxPlayField;
+        private Button buttonAcceptTrump;
+        private Label labelTrumpSelect;
+        private ComboBox comboBoxSelectTrump;
+        private ListBox listBoxYourHand;
+        private Button buttonPlayCard;
+        private Label labelPlayCard;
+        private ComboBox comboBoxPlayCard;
+        private Label label;
     }
 }
