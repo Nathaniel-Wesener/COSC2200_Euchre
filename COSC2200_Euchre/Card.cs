@@ -14,14 +14,14 @@ namespace COSC2200_Euchre
         public string cardRankStr;
         public bool isRed;
 
-        // TODO: finish comment - NW
+        
         /// <summary>
         /// Constructer for a card object. - NW
         /// </summary>
-        /// <param name="cardSuiteNum"></param>
-        /// <param name="cardRankNum"></param>
-        /// <param name="cardSuiteStr"></param>
-        /// <param name="cardRankStr"></param>
+        /// <param name="cardSuiteNum">The card suite number.</param>
+        /// <param name="cardRankNum">The card rank number.</param>
+        /// <param name="cardSuiteStr">The card suite name.</param>
+        /// <param name="cardRankStr">the card rank name.</param>
         public Card(int cardSuiteNum, int cardRankNum, string cardSuiteStr, string cardRankStr, bool isRed)
         {
             this.cardSuiteNum = cardSuiteNum;
@@ -31,6 +31,10 @@ namespace COSC2200_Euchre
             this.isRed = isRed;
         }
 
+        /// <summary>
+        /// Function that returns a card as a string value.
+        /// </summary>
+        /// <returns> A string describing the card.</returns>
         public string toString()
         {
             string cardString;
