@@ -8,5 +8,7 @@ namespace COSC2200_Euchre
 {
     internal class EuchreGame
     {
+
+
     }
 }

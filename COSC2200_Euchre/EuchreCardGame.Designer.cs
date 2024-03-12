@@ -64,8 +64,8 @@
             buttonAcceptTrump = new Button();
             labelTrumpSelect = new Label();
             comboBoxSelectTrump = new ComboBox();
-            groupBoxOpponent = new GroupBox();
-            groupBoxPlayField = new GroupBox();
+            groupBoxAI = new GroupBox();
+            groupBoxPlayFieldPlayer = new GroupBox();
             toolTip1 = new ToolTip(components);
             menuStripForm1.SuspendLayout();
             groupBoxControls.SuspendLayout();
@@ -80,27 +80,26 @@
             menuStripForm1.Items.AddRange(new ToolStripItem[] { toolStripMenuItemControl, toolStripMenuItemInfo });
             menuStripForm1.Location = new Point(0, 0);
             menuStripForm1.Name = "menuStripForm1";
-            menuStripForm1.Padding = new Padding(8, 2, 0, 2);
-            menuStripForm1.Size = new Size(1364, 33);
+            menuStripForm1.Size = new Size(1091, 28);
             menuStripForm1.TabIndex = 0;
             // 
             // toolStripMenuItemControl
             // 
             toolStripMenuItemControl.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemNewGame, toolStripMenuItemExit });
             toolStripMenuItemControl.Name = "toolStripMenuItemControl";
-            toolStripMenuItemControl.Size = new Size(95, 29);
+            toolStripMenuItemControl.Size = new Size(78, 24);
             toolStripMenuItemControl.Text = "Controls";
             // 
             // toolStripMenuItemNewGame
             // 
             toolStripMenuItemNewGame.Name = "toolStripMenuItemNewGame";
-            toolStripMenuItemNewGame.Size = new Size(200, 34);
+            toolStripMenuItemNewGame.Size = new Size(165, 26);
             toolStripMenuItemNewGame.Text = "New Game";
             // 
             // toolStripMenuItemExit
             // 
             toolStripMenuItemExit.Name = "toolStripMenuItemExit";
-            toolStripMenuItemExit.Size = new Size(200, 34);
+            toolStripMenuItemExit.Size = new Size(165, 26);
             toolStripMenuItemExit.Text = "Exit";
             toolStripMenuItemExit.Click += buttonExit_Click;
             // 
@@ -108,27 +107,27 @@
             // 
             toolStripMenuItemInfo.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuItemAbout, toolStripMenuItemHowToPlay, toolStripMenuItemCredits });
             toolStripMenuItemInfo.Name = "toolStripMenuItemInfo";
-            toolStripMenuItemInfo.Size = new Size(60, 29);
+            toolStripMenuItemInfo.Size = new Size(49, 24);
             toolStripMenuItemInfo.Text = "Info";
             // 
             // toolStripMenuItemAbout
             // 
             toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
-            toolStripMenuItemAbout.Size = new Size(211, 34);
+            toolStripMenuItemAbout.Size = new Size(174, 26);
             toolStripMenuItemAbout.Text = "About";
             toolStripMenuItemAbout.Click += toolStripMenuItemAbout_Click;
             // 
             // toolStripMenuItemHowToPlay
             // 
             toolStripMenuItemHowToPlay.Name = "toolStripMenuItemHowToPlay";
-            toolStripMenuItemHowToPlay.Size = new Size(211, 34);
+            toolStripMenuItemHowToPlay.Size = new Size(174, 26);
             toolStripMenuItemHowToPlay.Text = "How To Play";
             toolStripMenuItemHowToPlay.Click += toolStripMenuItemHowToPlay_Click;
             // 
             // toolStripMenuItemCredits
             // 
             toolStripMenuItemCredits.Name = "toolStripMenuItemCredits";
-            toolStripMenuItemCredits.Size = new Size(211, 34);
+            toolStripMenuItemCredits.Size = new Size(174, 26);
             toolStripMenuItemCredits.Text = "Credits";
             toolStripMenuItemCredits.Click += toolStripMenuItemCredits_Click;
             // 
@@ -136,10 +135,9 @@
             // 
             buttonExit.BackColor = SystemColors.ControlLight;
             buttonExit.FlatStyle = FlatStyle.Flat;
-            buttonExit.Location = new Point(25, 65);
-            buttonExit.Margin = new Padding(4);
+            buttonExit.Location = new Point(20, 52);
             buttonExit.Name = "buttonExit";
-            buttonExit.Size = new Size(118, 31);
+            buttonExit.Size = new Size(94, 31);
             buttonExit.TabIndex = 1;
             buttonExit.Text = "E&xit";
             toolTip1.SetToolTip(buttonExit, "Press exit to exit and finish the game");
@@ -150,11 +148,9 @@
             // 
             groupBoxControls.Controls.Add(buttonNewGame);
             groupBoxControls.Controls.Add(buttonExit);
-            groupBoxControls.Location = new Point(15, 39);
-            groupBoxControls.Margin = new Padding(4);
+            groupBoxControls.Location = new Point(12, 31);
             groupBoxControls.Name = "groupBoxControls";
-            groupBoxControls.Padding = new Padding(4);
-            groupBoxControls.Size = new Size(169, 104);
+            groupBoxControls.Size = new Size(135, 92);
             groupBoxControls.TabIndex = 1;
             groupBoxControls.TabStop = false;
             groupBoxControls.Text = "Game Controls";
@@ -163,10 +159,9 @@
             // 
             buttonNewGame.BackColor = SystemColors.ControlLight;
             buttonNewGame.FlatStyle = FlatStyle.Flat;
-            buttonNewGame.Location = new Point(25, 24);
-            buttonNewGame.Margin = new Padding(4);
+            buttonNewGame.Location = new Point(20, 19);
             buttonNewGame.Name = "buttonNewGame";
-            buttonNewGame.Size = new Size(118, 34);
+            buttonNewGame.Size = new Size(94, 27);
             buttonNewGame.TabIndex = 0;
             buttonNewGame.Text = "&New Game ";
             toolTip1.SetToolTip(buttonNewGame, "Press New game to start the game");
@@ -179,11 +174,9 @@
             groupBoxStats.Controls.Add(labelAIWinCounter);
             groupBoxStats.Controls.Add(labelPlayerWinCounterDisplay);
             groupBoxStats.Controls.Add(labelPlayerWinCounter);
-            groupBoxStats.Location = new Point(15, 150);
-            groupBoxStats.Margin = new Padding(4);
+            groupBoxStats.Location = new Point(12, 120);
             groupBoxStats.Name = "groupBoxStats";
-            groupBoxStats.Padding = new Padding(4);
-            groupBoxStats.Size = new Size(169, 174);
+            groupBoxStats.Size = new Size(135, 139);
             groupBoxStats.TabIndex = 2;
             groupBoxStats.TabStop = false;
             groupBoxStats.Text = "Overall Stats";
@@ -191,10 +184,9 @@
             // labelAIWinCounterDisplay
             // 
             labelAIWinCounterDisplay.AutoSize = true;
-            labelAIWinCounterDisplay.Location = new Point(71, 134);
-            labelAIWinCounterDisplay.Margin = new Padding(4, 0, 4, 0);
+            labelAIWinCounterDisplay.Location = new Point(57, 107);
             labelAIWinCounterDisplay.Name = "labelAIWinCounterDisplay";
-            labelAIWinCounterDisplay.Size = new Size(22, 25);
+            labelAIWinCounterDisplay.Size = new Size(17, 20);
             labelAIWinCounterDisplay.TabIndex = 3;
             labelAIWinCounterDisplay.Text = "0";
             toolTip1.SetToolTip(labelAIWinCounterDisplay, "Show how many times A.I / CPU opponent wont so far");
@@ -202,20 +194,18 @@
             // labelAIWinCounter
             // 
             labelAIWinCounter.AutoSize = true;
-            labelAIWinCounter.Location = new Point(25, 109);
-            labelAIWinCounter.Margin = new Padding(4, 0, 4, 0);
+            labelAIWinCounter.Location = new Point(20, 87);
             labelAIWinCounter.Name = "labelAIWinCounter";
-            labelAIWinCounter.Size = new Size(123, 25);
+            labelAIWinCounter.Size = new Size(101, 20);
             labelAIWinCounter.TabIndex = 2;
             labelAIWinCounter.Text = "AI game wins:";
             // 
             // labelPlayerWinCounterDisplay
             // 
             labelPlayerWinCounterDisplay.AutoSize = true;
-            labelPlayerWinCounterDisplay.Location = new Point(71, 69);
-            labelPlayerWinCounterDisplay.Margin = new Padding(4, 0, 4, 0);
+            labelPlayerWinCounterDisplay.Location = new Point(57, 55);
             labelPlayerWinCounterDisplay.Name = "labelPlayerWinCounterDisplay";
-            labelPlayerWinCounterDisplay.Size = new Size(22, 25);
+            labelPlayerWinCounterDisplay.Size = new Size(17, 20);
             labelPlayerWinCounterDisplay.TabIndex = 1;
             labelPlayerWinCounterDisplay.Text = "0";
             toolTip1.SetToolTip(labelPlayerWinCounterDisplay, "Shows how many times you won so far");
@@ -223,10 +213,9 @@
             // labelPlayerWinCounter
             // 
             labelPlayerWinCounter.AutoSize = true;
-            labelPlayerWinCounter.Location = new Point(8, 44);
-            labelPlayerWinCounter.Margin = new Padding(4, 0, 4, 0);
+            labelPlayerWinCounter.Location = new Point(6, 35);
             labelPlayerWinCounter.Name = "labelPlayerWinCounter";
-            labelPlayerWinCounter.Size = new Size(153, 25);
+            labelPlayerWinCounter.Size = new Size(127, 20);
             labelPlayerWinCounter.TabIndex = 0;
             labelPlayerWinCounter.Text = "Player game wins:";
             // 
@@ -241,11 +230,9 @@
             groupBoxCurrentStats.Controls.Add(labelPlayerTrickCounterDisplay);
             groupBoxCurrentStats.Controls.Add(labelAITrickCounter);
             groupBoxCurrentStats.Controls.Add(labelPlayerTricksCounter);
-            groupBoxCurrentStats.Location = new Point(192, 39);
-            groupBoxCurrentStats.Margin = new Padding(4);
+            groupBoxCurrentStats.Location = new Point(154, 31);
             groupBoxCurrentStats.Name = "groupBoxCurrentStats";
-            groupBoxCurrentStats.Padding = new Padding(4);
-            groupBoxCurrentStats.Size = new Size(1157, 104);
+            groupBoxCurrentStats.Size = new Size(926, 83);
             groupBoxCurrentStats.TabIndex = 3;
             groupBoxCurrentStats.TabStop = false;
             groupBoxCurrentStats.Text = "Current Game Stats";
@@ -254,10 +241,9 @@
             // 
             btnShuffle.BackColor = SystemColors.ControlLight;
             btnShuffle.FlatStyle = FlatStyle.Flat;
-            btnShuffle.Location = new Point(457, 42);
-            btnShuffle.Margin = new Padding(4);
+            btnShuffle.Location = new Point(807, 26);
             btnShuffle.Name = "btnShuffle";
-            btnShuffle.Size = new Size(118, 34);
+            btnShuffle.Size = new Size(94, 27);
             btnShuffle.TabIndex = 10;
             btnShuffle.Text = "&Shuffle";
             toolTip1.SetToolTip(btnShuffle, "Press Shuffle to randomly order the current deck ");
@@ -266,19 +252,17 @@
             // labelCurrentTrumpDisplay
             // 
             labelCurrentTrumpDisplay.AutoSize = true;
-            labelCurrentTrumpDisplay.Location = new Point(655, 65);
-            labelCurrentTrumpDisplay.Margin = new Padding(4, 0, 4, 0);
+            labelCurrentTrumpDisplay.Location = new Point(524, 52);
             labelCurrentTrumpDisplay.Name = "labelCurrentTrumpDisplay";
-            labelCurrentTrumpDisplay.Size = new Size(0, 25);
+            labelCurrentTrumpDisplay.Size = new Size(0, 20);
             labelCurrentTrumpDisplay.TabIndex = 9;
             // 
             // labelCurrentTrump
             // 
             labelCurrentTrump.AutoSize = true;
-            labelCurrentTrump.Location = new Point(249, 65);
-            labelCurrentTrump.Margin = new Padding(4, 0, 4, 0);
+            labelCurrentTrump.Location = new Point(199, 52);
             labelCurrentTrump.Name = "labelCurrentTrump";
-            labelCurrentTrump.Size = new Size(129, 25);
+            labelCurrentTrump.Size = new Size(106, 20);
             labelCurrentTrump.TabIndex = 8;
             labelCurrentTrump.Text = "Current Trump:";
             toolTip1.SetToolTip(labelCurrentTrump, "Trump for the game in progress");
@@ -286,19 +270,17 @@
             // labelCurrentMakerDisplay
             // 
             labelCurrentMakerDisplay.AutoSize = true;
-            labelCurrentMakerDisplay.Location = new Point(655, 29);
-            labelCurrentMakerDisplay.Margin = new Padding(4, 0, 4, 0);
+            labelCurrentMakerDisplay.Location = new Point(524, 23);
             labelCurrentMakerDisplay.Name = "labelCurrentMakerDisplay";
-            labelCurrentMakerDisplay.Size = new Size(0, 25);
+            labelCurrentMakerDisplay.Size = new Size(0, 20);
             labelCurrentMakerDisplay.TabIndex = 7;
             // 
             // labelCurrentMaker
             // 
             labelCurrentMaker.AutoSize = true;
-            labelCurrentMaker.Location = new Point(249, 29);
-            labelCurrentMaker.Margin = new Padding(4, 0, 4, 0);
+            labelCurrentMaker.Location = new Point(199, 23);
             labelCurrentMaker.Name = "labelCurrentMaker";
-            labelCurrentMaker.Size = new Size(128, 25);
+            labelCurrentMaker.Size = new Size(105, 20);
             labelCurrentMaker.TabIndex = 6;
             labelCurrentMaker.Text = "Current Maker:";
             toolTip1.SetToolTip(labelCurrentMaker, "Current trump maker ");
@@ -306,30 +288,27 @@
             // labelAITrickCounterDisplay
             // 
             labelAITrickCounterDisplay.AutoSize = true;
-            labelAITrickCounterDisplay.Location = new Point(135, 65);
-            labelAITrickCounterDisplay.Margin = new Padding(4, 0, 4, 0);
+            labelAITrickCounterDisplay.Location = new Point(108, 52);
             labelAITrickCounterDisplay.Name = "labelAITrickCounterDisplay";
-            labelAITrickCounterDisplay.Size = new Size(22, 25);
+            labelAITrickCounterDisplay.Size = new Size(17, 20);
             labelAITrickCounterDisplay.TabIndex = 3;
             labelAITrickCounterDisplay.Text = "0";
             // 
             // labelPlayerTrickCounterDisplay
             // 
             labelPlayerTrickCounterDisplay.AutoSize = true;
-            labelPlayerTrickCounterDisplay.Location = new Point(135, 29);
-            labelPlayerTrickCounterDisplay.Margin = new Padding(4, 0, 4, 0);
+            labelPlayerTrickCounterDisplay.Location = new Point(108, 23);
             labelPlayerTrickCounterDisplay.Name = "labelPlayerTrickCounterDisplay";
-            labelPlayerTrickCounterDisplay.Size = new Size(22, 25);
+            labelPlayerTrickCounterDisplay.Size = new Size(17, 20);
             labelPlayerTrickCounterDisplay.TabIndex = 2;
             labelPlayerTrickCounterDisplay.Text = "0";
             // 
             // labelAITrickCounter
             // 
             labelAITrickCounter.AutoSize = true;
-            labelAITrickCounter.Location = new Point(8, 65);
-            labelAITrickCounter.Margin = new Padding(4, 0, 4, 0);
+            labelAITrickCounter.Location = new Point(6, 52);
             labelAITrickCounter.Name = "labelAITrickCounter";
-            labelAITrickCounter.Size = new Size(85, 25);
+            labelAITrickCounter.Size = new Size(70, 20);
             labelAITrickCounter.TabIndex = 1;
             labelAITrickCounter.Text = "AI Tricks: ";
             toolTip1.SetToolTip(labelAITrickCounter, "A.I. opponent tricks counter ");
@@ -337,10 +316,9 @@
             // labelPlayerTricksCounter
             // 
             labelPlayerTricksCounter.AutoSize = true;
-            labelPlayerTricksCounter.Location = new Point(8, 29);
-            labelPlayerTricksCounter.Margin = new Padding(4, 0, 4, 0);
+            labelPlayerTricksCounter.Location = new Point(6, 23);
             labelPlayerTricksCounter.Name = "labelPlayerTricksCounter";
-            labelPlayerTricksCounter.Size = new Size(115, 25);
+            labelPlayerTricksCounter.Size = new Size(96, 20);
             labelPlayerTricksCounter.TabIndex = 0;
             labelPlayerTricksCounter.Text = "Player Tricks: ";
             toolTip1.SetToolTip(labelPlayerTricksCounter, "Your tricks counter");
@@ -355,11 +333,9 @@
             groupBoxPlayerControls.Controls.Add(buttonAcceptTrump);
             groupBoxPlayerControls.Controls.Add(labelTrumpSelect);
             groupBoxPlayerControls.Controls.Add(comboBoxSelectTrump);
-            groupBoxPlayerControls.Location = new Point(15, 331);
-            groupBoxPlayerControls.Margin = new Padding(4);
+            groupBoxPlayerControls.Location = new Point(12, 265);
             groupBoxPlayerControls.Name = "groupBoxPlayerControls";
-            groupBoxPlayerControls.Padding = new Padding(4);
-            groupBoxPlayerControls.Size = new Size(838, 250);
+            groupBoxPlayerControls.Size = new Size(1068, 200);
             groupBoxPlayerControls.TabIndex = 4;
             groupBoxPlayerControls.TabStop = false;
             groupBoxPlayerControls.Text = "Your Controls";
@@ -368,10 +344,9 @@
             // 
             buttonPlayCard.BackColor = SystemColors.ControlLight;
             buttonPlayCard.FlatStyle = FlatStyle.Flat;
-            buttonPlayCard.Location = new Point(515, 114);
-            buttonPlayCard.Margin = new Padding(4);
+            buttonPlayCard.Location = new Point(512, 98);
             buttonPlayCard.Name = "buttonPlayCard";
-            buttonPlayCard.Size = new Size(118, 36);
+            buttonPlayCard.Size = new Size(94, 29);
             buttonPlayCard.TabIndex = 7;
             buttonPlayCard.Text = "&Play Card";
             buttonPlayCard.UseVisualStyleBackColor = false;
@@ -379,40 +354,36 @@
             // labelPlayCard
             // 
             labelPlayCard.AutoSize = true;
-            labelPlayCard.Location = new Point(515, 29);
-            labelPlayCard.Margin = new Padding(4, 0, 4, 0);
+            labelPlayCard.Location = new Point(512, 25);
             labelPlayCard.Name = "labelPlayCard";
-            labelPlayCard.Size = new Size(164, 25);
+            labelPlayCard.Size = new Size(138, 20);
             labelPlayCard.TabIndex = 6;
             labelPlayCard.Text = "Select Card To Play:";
             // 
             // comboBoxPlayCard
             // 
             comboBoxPlayCard.FormattingEnabled = true;
-            comboBoxPlayCard.Location = new Point(515, 60);
-            comboBoxPlayCard.Margin = new Padding(4);
+            comboBoxPlayCard.Location = new Point(512, 48);
             comboBoxPlayCard.Name = "comboBoxPlayCard";
-            comboBoxPlayCard.Size = new Size(188, 33);
+            comboBoxPlayCard.Size = new Size(151, 28);
             comboBoxPlayCard.TabIndex = 5;
             // 
             // label
             // 
             label.AutoSize = true;
-            label.Location = new Point(231, 29);
-            label.Margin = new Padding(4, 0, 4, 0);
+            label.Location = new Point(185, 23);
             label.Name = "label";
-            label.Size = new Size(99, 25);
+            label.Size = new Size(81, 20);
             label.TabIndex = 4;
             label.Text = "&Your Hand:";
             // 
             // listBoxYourHand
             // 
             listBoxYourHand.FormattingEnabled = true;
-            listBoxYourHand.ItemHeight = 25;
-            listBoxYourHand.Location = new Point(231, 60);
-            listBoxYourHand.Margin = new Padding(4);
+            listBoxYourHand.ItemHeight = 20;
+            listBoxYourHand.Location = new Point(185, 48);
             listBoxYourHand.Name = "listBoxYourHand";
-            listBoxYourHand.Size = new Size(263, 154);
+            listBoxYourHand.Size = new Size(211, 124);
             listBoxYourHand.TabIndex = 3;
             toolTip1.SetToolTip(listBoxYourHand, "Your current hand ");
             // 
@@ -420,10 +391,9 @@
             // 
             buttonAcceptTrump.BackColor = SystemColors.ControlLight;
             buttonAcceptTrump.FlatStyle = FlatStyle.Flat;
-            buttonAcceptTrump.Location = new Point(8, 44);
-            buttonAcceptTrump.Margin = new Padding(4);
+            buttonAcceptTrump.Location = new Point(6, 35);
             buttonAcceptTrump.Name = "buttonAcceptTrump";
-            buttonAcceptTrump.Size = new Size(169, 36);
+            buttonAcceptTrump.Size = new Size(135, 29);
             buttonAcceptTrump.TabIndex = 2;
             buttonAcceptTrump.Text = "&Accept Trump";
             buttonAcceptTrump.UseVisualStyleBackColor = false;
@@ -431,62 +401,55 @@
             // labelTrumpSelect
             // 
             labelTrumpSelect.AutoSize = true;
-            labelTrumpSelect.Location = new Point(8, 134);
-            labelTrumpSelect.Margin = new Padding(4, 0, 4, 0);
+            labelTrumpSelect.Location = new Point(6, 107);
             labelTrumpSelect.Name = "labelTrumpSelect";
-            labelTrumpSelect.Size = new Size(113, 25);
+            labelTrumpSelect.Size = new Size(95, 20);
             labelTrumpSelect.TabIndex = 0;
             labelTrumpSelect.Text = "Select Trump";
             // 
             // comboBoxSelectTrump
             // 
             comboBoxSelectTrump.FormattingEnabled = true;
-            comboBoxSelectTrump.Location = new Point(8, 179);
-            comboBoxSelectTrump.Margin = new Padding(4);
+            comboBoxSelectTrump.Location = new Point(6, 143);
             comboBoxSelectTrump.Name = "comboBoxSelectTrump";
-            comboBoxSelectTrump.Size = new Size(188, 33);
+            comboBoxSelectTrump.Size = new Size(151, 28);
             comboBoxSelectTrump.TabIndex = 1;
             // 
-            // groupBoxOpponent
+            // groupBoxAI
             // 
-            groupBoxOpponent.Location = new Point(860, 331);
-            groupBoxOpponent.Margin = new Padding(4);
-            groupBoxOpponent.Name = "groupBoxOpponent";
-            groupBoxOpponent.Padding = new Padding(4);
-            groupBoxOpponent.Size = new Size(489, 250);
-            groupBoxOpponent.TabIndex = 5;
-            groupBoxOpponent.TabStop = false;
-            groupBoxOpponent.Text = "CPU Opponent";
-            toolTip1.SetToolTip(groupBoxOpponent, "A.I. player");
+            groupBoxAI.Location = new Point(688, 120);
+            groupBoxAI.Name = "groupBoxAI";
+            groupBoxAI.Size = new Size(391, 139);
+            groupBoxAI.TabIndex = 5;
+            groupBoxAI.TabStop = false;
+            groupBoxAI.Text = "AI Opponent";
+            toolTip1.SetToolTip(groupBoxAI, "A.I. player");
             // 
-            // groupBoxPlayField
+            // groupBoxPlayFieldPlayer
             // 
-            groupBoxPlayField.BackColor = SystemColors.ControlLight;
-            groupBoxPlayField.FlatStyle = FlatStyle.Flat;
-            groupBoxPlayField.Location = new Point(191, 150);
-            groupBoxPlayField.Margin = new Padding(4);
-            groupBoxPlayField.Name = "groupBoxPlayField";
-            groupBoxPlayField.Padding = new Padding(4);
-            groupBoxPlayField.Size = new Size(1158, 174);
-            groupBoxPlayField.TabIndex = 6;
-            groupBoxPlayField.TabStop = false;
-            groupBoxPlayField.Text = "The Table";
+            groupBoxPlayFieldPlayer.BackColor = SystemColors.ControlLight;
+            groupBoxPlayFieldPlayer.FlatStyle = FlatStyle.Flat;
+            groupBoxPlayFieldPlayer.Location = new Point(153, 120);
+            groupBoxPlayFieldPlayer.Name = "groupBoxPlayFieldPlayer";
+            groupBoxPlayFieldPlayer.Size = new Size(529, 139);
+            groupBoxPlayFieldPlayer.TabIndex = 6;
+            groupBoxPlayFieldPlayer.TabStop = false;
+            groupBoxPlayFieldPlayer.Text = "The Players's Table";
             // 
-            // Form1
+            // EuchreCardGame
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1364, 588);
-            Controls.Add(groupBoxPlayField);
-            Controls.Add(groupBoxOpponent);
+            ClientSize = new Size(1091, 470);
+            Controls.Add(groupBoxPlayFieldPlayer);
+            Controls.Add(groupBoxAI);
             Controls.Add(groupBoxPlayerControls);
             Controls.Add(groupBoxCurrentStats);
             Controls.Add(groupBoxStats);
             Controls.Add(groupBoxControls);
             Controls.Add(menuStripForm1);
             MainMenuStrip = menuStripForm1;
-            Margin = new Padding(4);
-            Name = "Form1";
+            Name = "EuchreCardGame";
             Text = "Super Awesome Euchre Game!";
             menuStripForm1.ResumeLayout(false);
             menuStripForm1.PerformLayout();
@@ -529,8 +492,8 @@
         private Label labelCurrentTrump;
         private Label labelCurrentMakerDisplay;
         private GroupBox groupBoxPlayerControls;
-        private GroupBox groupBoxOpponent;
-        private GroupBox groupBoxPlayField;
+        private GroupBox groupBoxAI;
+        private GroupBox groupBoxPlayFieldPlayer;
         private Button buttonAcceptTrump;
         private Label labelTrumpSelect;
         private ComboBox comboBoxSelectTrump;
