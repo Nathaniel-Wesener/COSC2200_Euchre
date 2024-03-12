@@ -37,6 +37,8 @@ namespace COSC2200_Euchre
             }
         }
 
+
+
         /// <summary>
         /// Function that creates a new card with just integer paramaters. - NW
         /// </summary>
@@ -93,6 +95,21 @@ namespace COSC2200_Euchre
 
             return new Card(suite, rank, strSuite, strRank, red);
 
+        }
+
+        //// Shuffle method to randomly reorder the cards in the deck
+        public void Shuffle()
+        {
+            Random rng = new Random();
+            int n = cards.Length;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                Card value = cards[k];
+                cards[k] = cards[n];
+                cards[n] = value;
+            }
         }
     }
 }

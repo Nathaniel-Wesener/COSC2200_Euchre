@@ -1,8 +1,8 @@
 namespace COSC2200_Euchre
 {
-    public partial class Form1 : Form
+    public partial class EuchreCardGame : Form
     {
-        public Form1()
+        public EuchreCardGame()
         {
             InitializeComponent();
         }
@@ -32,5 +32,9 @@ namespace COSC2200_Euchre
             System.Windows.Forms.Application.Exit();
         }
 
+        private void buttonNewGame_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
