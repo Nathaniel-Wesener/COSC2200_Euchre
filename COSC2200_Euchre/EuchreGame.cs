@@ -8,6 +8,12 @@ namespace COSC2200_Euchre
 {
     internal class EuchreGame
     {
+        public Player humanPlayer;
+        public Player aiPlayer;
+        public int pointsToWin;
+        public int currentTrump;
+        public Card trumpCard;
+
 
 
     }

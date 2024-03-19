@@ -10,7 +10,7 @@ namespace COSC2200_Euchre
     {
         public int cardSuiteNum;
         public int cardRankNum;
-        public  string cardSuiteStr;
+        public string cardSuiteStr;
         public string cardRankStr;
         public bool isRed;
 

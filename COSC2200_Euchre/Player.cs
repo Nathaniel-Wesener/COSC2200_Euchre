@@ -9,7 +9,12 @@ namespace COSC2200_Euchre
     internal class Player
     {
 
-        
+        public int tricksWon;
+        public int points;
+        public Card[] cardsInHand = new Card[5];
+        public bool isAI;
+        public bool isMaker;
+        public bool hasPlayed;
 
     }
 }
