@@ -9,8 +9,8 @@ namespace COSC2200_Euchre
     internal class Deck
     {
         
-        const int NumCards = 24;
-        const int NumSuites = 4;
+        public const int NumCards = 24;
+        public const int NumSuites = 4;
         const string SuiteHearts = "Hearts";
         const string SuiteClubs = "Clubs";
         const string SuiteDiamonds = "Diamonds";
@@ -45,7 +45,7 @@ namespace COSC2200_Euchre
         /// <param name="rank"> The integer rank of the card.</param>
         /// <param name="suite"> The integer suite of the card.</param>
         /// <returns> A new card.</returns>
-        private Card CardMaker(int rank, int suite)
+        public Card CardMaker(int rank, int suite)
         {
             string strSuite;
             string strRank;

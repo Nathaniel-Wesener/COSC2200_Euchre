@@ -11,7 +11,7 @@ namespace COSC2200_Euchre
 
         public int tricksWon;
         public int points;
-        public Card[] cardsInHand = new Card[5];
+        public List<Card>? cardsInHand;
         public bool isAI;
         public bool isMaker;
         public bool hasPlayed;
