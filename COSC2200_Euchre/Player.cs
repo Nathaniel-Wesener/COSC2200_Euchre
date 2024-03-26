@@ -15,6 +15,14 @@ namespace COSC2200_Euchre
         public bool isAI;
         public bool isMaker;
         public bool hasPlayed;
+        
+        public Player(bool isAI)
+        {
+            tricksWon = 0;
+            points = 0;
+            cardsInHand = null;
+            this.isAI = isAI;
+        }
 
     }
 }

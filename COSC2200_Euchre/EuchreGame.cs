@@ -16,6 +16,13 @@ namespace COSC2200_Euchre
         public List<Card>? winningcards;
         public Deck deck;
 
+        public EuchreGame(int pointsToWin)
+        {
+            humanPlayer = new Player(false);
+            aiPlayer = new Player(true);
+            this.pointsToWin = pointsToWin;
+            deck = new Deck();
+        }
 
         public void GenerateList(int suiteTrump, int suitePlayed)
         {
@@ -52,10 +59,7 @@ namespace COSC2200_Euchre
                     winningcards.Add(card);
                 }
             }
-
         }
-
-
 
     }
 }
