@@ -194,7 +194,7 @@ namespace COSC2200_Euchre
         }
         void aiResponseTrick()
         {
-            // TODO: Make the ai decide the best card then play it.
+            // TODO: Make the ai decide the best card then play it. Or make the ai determine if it can win and either play a winning card or play the worst card it can legally play.
             compareCards();
         }
         void playerResponseTrick()
