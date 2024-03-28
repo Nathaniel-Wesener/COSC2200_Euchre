@@ -72,8 +72,13 @@ namespace COSC2200_Euchre
             }
             else if (stage == 1)
             {
-                
+                drawTrump();
             }
+            else if (stage == 2)
+            {
+
+
+            } 
         }
 
         public void startGame()
@@ -103,7 +108,7 @@ namespace COSC2200_Euchre
             }
             else
             {
-                
+                playerChoice(trumpCard);
             }
         }
 
@@ -128,6 +133,12 @@ namespace COSC2200_Euchre
                 stage = 2;
                 aiPlayer.isMaker = true;
                 humanPlayer.isMaker = false;
+                gameStage();
+            }
+            else
+            {
+                // TODO: fix this button enabling as well
+                EuchreCardGame.buttonAcceptTrump.enabled = true;
             }
         }
         
@@ -160,6 +171,42 @@ namespace COSC2200_Euchre
                 }
             }
         }
+
+        void playATrick()
+        {
+            if (aiPlayer.isMaker)
+            {
+                aiMakerTrick();
+            }
+            else
+            {
+                playerMakerTrick();
+            }
+        }
+        void aiMakerTrick()
+        {
+            //TODO: Make the ai decide the best card and then play it.
+
+        }
+        void playerMakerTrick()
+        {
+
+        }
+        void aiResponseTrick()
+        {
+            // TODO: Make the ai decide the best card then play it.
+            compareCards();
+        }
+        void playerResponseTrick()
+        {
+
+        }
+
+        void compareCards()
+        {
+
+        }
+
 
 
 

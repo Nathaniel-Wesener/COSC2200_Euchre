@@ -15,23 +15,24 @@ namespace COSC2200_Euchre
         public bool isAI;
         public bool isMaker;
         public bool isChoosing;
-        public bool hasPlayed;
+        public Card playedCard;
         
         public Player(bool isAI)
         {
             tricksWon = 0;
             points = 0;
+
             this.isAI = isAI;
             cardsInHand = new List<Card>();
         }
 
         public void addPoints()
         {
-            if (isMaker && tricksWon < 5)
+            if (isChoosing && tricksWon < 5)
             {
                 points++;
             }
-            else if (isMaker)
+            else if (isChoosing)
             {
                 points += 2;
             }
