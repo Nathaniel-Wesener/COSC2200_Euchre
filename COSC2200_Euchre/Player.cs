@@ -11,17 +11,18 @@ namespace COSC2200_Euchre
 
         public int tricksWon;
         public int points;
-        public List<Card>? cardsInHand;
+        public List<Card> cardsInHand;
         public bool isAI;
         public bool isMaker;
+        public bool isChoosing;
         public bool hasPlayed;
         
         public Player(bool isAI)
         {
             tricksWon = 0;
             points = 0;
-            cardsInHand = null;
             this.isAI = isAI;
+            cardsInHand = new List<Card>();
         }
 
         public void addPoints()

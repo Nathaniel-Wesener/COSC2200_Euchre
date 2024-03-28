@@ -494,7 +494,6 @@
         private GroupBox groupBoxPlayerControls;
         private GroupBox groupBoxAI;
         private GroupBox groupBoxPlayFieldPlayer;
-        private Button buttonAcceptTrump;
         private Label labelTrumpSelect;
         private ComboBox comboBoxSelectTrump;
         private ListBox listBoxYourHand;
@@ -504,5 +503,6 @@
         private Label label;
         private ToolTip toolTip1;
         private Button btnShuffle;
+        public Button buttonAcceptTrump;
     }
 }
