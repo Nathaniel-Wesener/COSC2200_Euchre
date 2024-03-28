@@ -16,25 +16,7 @@ namespace COSC2200_Euchre
 
         // TODO: make a function comment. - NW
         
-        public List<Card> PriorityList(Card firstCard, int suiteTrump)
-        {
-            // TODO: Figure out how to design this function then design it. -NW
-            // The idea behind this function is to create a list of cards for each trick
-            // based of the first card played.
-            Deck deck = new Deck();
-            List<Card> cards = new List<Card>();
 
-            if (firstCard.cardSuiteNum == suiteTrump) 
-            {
-                
-            }
-            else
-            {
-                
-            }
-
-            return cards;
-        }
 
         public void WinMessage() 
         {
