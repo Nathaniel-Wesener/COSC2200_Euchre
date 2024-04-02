@@ -104,6 +104,11 @@ namespace COSC2200_Euchre
         /// </summary>
         public void drawTrump()
         {
+            // Set bothe players tricks one count too 0.
+            aiPlayer.tricksWon = 0;
+            humanPlayer.tricksWon = 0;
+
+            // Shuffle the deck then deal.
             deck.Shuffle();
             if (aiPlayer.isChoosing)
             {
@@ -114,6 +119,8 @@ namespace COSC2200_Euchre
                 dealCards(humanPlayer, aiPlayer);
             }
             trumpCard = deck.cards[10];
+            
+            // Send to different functions depending on which player is choosing.
             if (aiPlayer.isChoosing)
             {
                 aiChoice(trumpCard);
@@ -124,6 +131,10 @@ namespace COSC2200_Euchre
             }
         }
 
+        /// <summary>
+        /// Function that lets the ai decide whether or not it wants the trump.
+        /// </summary>
+        /// <param name="possibleCard">The card that was drawn for trump.</param>
         void aiChoice(Card possibleCard) 
         {
             int trumpSuite = possibleCard.cardSuiteNum;
@@ -184,6 +195,9 @@ namespace COSC2200_Euchre
             }
         }
 
+        /// <summary>
+        /// Function that starts tricks being played.
+        /// </summary>
         void playATrick()
         {
             if (aiPlayer.isMaker)
@@ -205,7 +219,13 @@ namespace COSC2200_Euchre
         }
         void playerMakerTrick()
         {
-
+            EuchreCardGame.comboBoxPlayCard.Collection.Clear();
+            foreach (var item in humanPlayer.cardsInHand)
+            {
+                EuchreCardGame.comboBoxPlayCard.Collection.add(item.toString());
+            }
+            EuchreCardGame.buttonPlayCard.Enabled = true;
+            EuchreCardGame.comboBoxPlayCard.Enabled = true;
         }
         void aiResponseTrick()
         {
@@ -268,6 +288,7 @@ namespace COSC2200_Euchre
             }
 
         }
+        
         void playerResponseTrick()
         {
             if (trumpCard != null && aiPlayer.playedCard != null)
@@ -276,6 +297,12 @@ namespace COSC2200_Euchre
             }
         }
 
+        /// <summary>
+        /// Function that compares two cards to determine which one is better in the current euchre context.
+        /// </summary>
+        /// <param name="cardOne">the first card</param>
+        /// <param name="cardTwo">the second card</param>
+        /// <returns>true if the first card is better, false if the second card is better.</returns>
         bool compareCards(Card cardOne, Card cardTwo)
         {
             bool firstCardWins = true;
@@ -297,6 +324,9 @@ namespace COSC2200_Euchre
             return firstCardWins;
         }
 
+        /// <summary>
+        /// Function that determines who won the trick.
+        /// </summary>
         void determineTrickWinner()
         {
             bool humanWins;
@@ -317,6 +347,7 @@ namespace COSC2200_Euchre
                     aiPlayer.tricksWon++;
                 }
 
+                // Determine wheter the round is over.
                 if(aiPlayer.tricksWon + humanPlayer.tricksWon < 5)
                 {
                     playATrick();
@@ -329,8 +360,13 @@ namespace COSC2200_Euchre
             
         }
 
+        /// <summary>
+        /// Function that determines who won the round then allocates points. If a player has enough points to
+        /// win it triggers their victory. If no player has enough points to win it starts another round.
+        /// </summary>
         void roundEnd()
         {
+            // Determine winner and add points.
             if(humanPlayer.tricksWon > aiPlayer.tricksWon)
             {
                 humanPlayer.addPoints();
@@ -340,6 +376,7 @@ namespace COSC2200_Euchre
                 aiPlayer.addPoints();
             }
 
+            // Determine if a player has enough points to win the game.
             if (humanPlayer.points >= pointsToWin)
             {
                 //TODO: Make a victory thing
@@ -348,6 +385,7 @@ namespace COSC2200_Euchre
             {
                 //TODO: Make a loss thing.
             }
+            // Start a new round.
             else
             {
                 if (humanPlayer.isChoosing)
@@ -364,10 +402,6 @@ namespace COSC2200_Euchre
                 gameStage();
             }
         }
-
-
-
-
 
     }
 }

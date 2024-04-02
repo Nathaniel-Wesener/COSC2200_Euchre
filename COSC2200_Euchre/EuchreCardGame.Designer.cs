@@ -491,18 +491,18 @@
         private Label labelCurrentTrumpDisplay;
         private Label labelCurrentTrump;
         private Label labelCurrentMakerDisplay;
-        private GroupBox groupBoxPlayerControls;
         private GroupBox groupBoxAI;
         private GroupBox groupBoxPlayFieldPlayer;
         private Label labelTrumpSelect;
         private ComboBox comboBoxSelectTrump;
         private ListBox listBoxYourHand;
-        private Button buttonPlayCard;
         private Label labelPlayCard;
-        private ComboBox comboBoxPlayCard;
         private Label label;
         private ToolTip toolTip1;
         private Button btnShuffle;
         public Button buttonAcceptTrump;
+        public GroupBox groupBoxPlayerControls;
+        public Button buttonPlayCard;
+        public ComboBox comboBoxPlayCard;
     }
 }
