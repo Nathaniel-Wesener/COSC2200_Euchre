@@ -15,7 +15,7 @@ namespace COSC2200_Euchre
         public bool isAI;
         public bool isMaker;
         public bool isChoosing;
-        public Card playedCard;
+        public Card? playedCard;
         
         public Player(bool isAI)
         {

@@ -27,6 +27,12 @@ namespace COSC2200_Euchre
             winningcards = new List<Card>();
         }
 
+        /// <summary>
+        /// Function that generates a list of winning cards based of the suite of the card played and the trump suite.
+        /// to be used for the compare cards function and the AI functionality.
+        /// </summary>
+        /// <param name="suiteTrump"></param>
+        /// <param name="suitePlayed"></param>
         public void GenerateList(int suiteTrump, int suitePlayed)
         {
             winningcards = new List<Card>();
@@ -64,6 +70,9 @@ namespace COSC2200_Euchre
             }
         }
 
+        /// <summary>
+        /// Function that determines what stage the game is in and calls the appropriate functions.
+        /// </summary>
         public void gameStage()
         {
             if (stage == 0)
@@ -76,7 +85,7 @@ namespace COSC2200_Euchre
             }
             else if (stage == 2)
             {
-
+                playATrick();
 
             } 
         }
@@ -90,6 +99,9 @@ namespace COSC2200_Euchre
             gameStage();
         }
 
+        /// <summary>
+        /// Function that deals card to players and draws the trump card.
+        /// </summary>
         public void drawTrump()
         {
             deck.Shuffle();
@@ -186,6 +198,9 @@ namespace COSC2200_Euchre
         void aiMakerTrick()
         {
             //TODO: Make the ai decide the best card and then play it.
+            
+            
+            playerResponseTrick();
 
         }
         void playerMakerTrick()
@@ -194,17 +209,160 @@ namespace COSC2200_Euchre
         }
         void aiResponseTrick()
         {
-            // TODO: Make the ai decide the best card then play it. Or make the ai determine if it can win and either play a winning card or play the worst card it can legally play.
-            compareCards();
+            if(trumpCard != null && humanPlayer.playedCard != null)
+            {
+                GenerateList(trumpCard.cardSuiteNum, humanPlayer.playedCard.cardSuiteNum);
+                
+                List<Card> playableCards = new List<Card>();
+                bool cardsInSuite = false;
+                foreach (var item in aiPlayer.cardsInHand)
+                {
+                    if (item.cardSuiteNum == humanPlayer.playedCard.cardSuiteNum)
+                    {
+                        playableCards.Add(item);
+                        cardsInSuite = true;
+                    }
+                }
+                if (cardsInSuite)
+                {
+                    bool playCard = false;
+                    foreach (var card in playableCards)
+                    {
+                        playCard = compareCards(card, humanPlayer.playedCard);
+                        if (playCard)
+                        {
+                            aiPlayer.cardsInHand.Remove(card);
+                            aiPlayer.playedCard = card;
+                            break;
+                        }
+                    }
+                    if (!playCard)
+                    {
+                        aiPlayer.cardsInHand.Remove(playableCards[0]);
+                        aiPlayer.playedCard = playableCards[0];
+                    }
+                    
+                }
+                else
+                {
+                    bool playCard = false;
+                    foreach (var card in aiPlayer.cardsInHand)
+                    {
+                        playCard = compareCards(card, humanPlayer.playedCard);
+                        if (playCard)
+                        {
+                            aiPlayer.cardsInHand.Remove(card);
+                            aiPlayer.playedCard = card;
+                            break;
+                        }
+                    }
+                    if (!playCard)
+                    {
+                        aiPlayer.cardsInHand.Remove(aiPlayer.cardsInHand[0]);
+                        aiPlayer.playedCard = playableCards[0];
+                    }
+                    
+                }
+                determineTrickWinner();
+
+            }
+
         }
         void playerResponseTrick()
         {
-
+            if (trumpCard != null && aiPlayer.playedCard != null)
+            {
+                GenerateList(trumpCard.cardSuiteNum, aiPlayer.playedCard.cardSuiteNum);
+            }
         }
 
-        void compareCards()
+        bool compareCards(Card cardOne, Card cardTwo)
         {
+            bool firstCardWins = true;
+            
+            foreach (var item in winningcards)
+            {
+                if (item == cardOne)
+                {
+                    firstCardWins = true;
+                    break;
+                }
+                if (item == cardTwo)
+                {
+                    firstCardWins = false;
+                    break;
+                }
+            }
 
+            return firstCardWins;
+        }
+
+        void determineTrickWinner()
+        {
+            bool humanWins;
+            if (humanPlayer.playedCard != null && aiPlayer.playedCard != null)
+            {
+                humanWins = compareCards(humanPlayer.playedCard, aiPlayer.playedCard);  
+
+                if (humanWins)
+                {
+                    aiPlayer.isMaker = false;
+                    humanPlayer.isMaker = true;
+                    humanPlayer.tricksWon++;
+                }
+                else
+                {
+                    humanPlayer.isMaker = false;
+                    aiPlayer.isMaker = true;
+                    aiPlayer.tricksWon++;
+                }
+
+                if(aiPlayer.tricksWon + humanPlayer.tricksWon < 5)
+                {
+                    playATrick();
+                }
+                else
+                {
+                    roundEnd();
+                }
+            }
+            
+        }
+
+        void roundEnd()
+        {
+            if(humanPlayer.tricksWon > aiPlayer.tricksWon)
+            {
+                humanPlayer.addPoints();
+            }
+            else
+            {
+                aiPlayer.addPoints();
+            }
+
+            if (humanPlayer.points >= pointsToWin)
+            {
+                //TODO: Make a victory thing
+            }
+            else if (aiPlayer.points >= pointsToWin)
+            {
+                //TODO: Make a loss thing.
+            }
+            else
+            {
+                if (humanPlayer.isChoosing)
+                {
+                    humanPlayer.isChoosing = false;
+                    aiPlayer.isChoosing = true;
+                }
+                else
+                {
+                    humanPlayer.isChoosing = true;
+                    aiPlayer.isChoosing = false;
+                }
+                stage = 1;
+                gameStage();
+            }
         }
 
 
