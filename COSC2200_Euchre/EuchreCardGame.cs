@@ -36,5 +36,26 @@ namespace COSC2200_Euchre
         {
 
         }
+
+        private void comboBoxSelectTrump_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAcceptTrump_Click(object sender, EventArgs e)
+        {
+            EuchreGame.AcceptTrump();
+
+        }
+
+        private void groupBoxPlayerControls_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBoxAI_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

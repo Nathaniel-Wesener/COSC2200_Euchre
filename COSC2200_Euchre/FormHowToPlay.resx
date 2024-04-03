@@ -117,4 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Setup:
+Card Deck: In this game there are 24 cards from all suits ranks from 9, 10, J, Q ,K and A.
+Deal: Each player is dealt 5 cards while the remaing cards are used a draw pile
+
+Gameplay:
+Trump Selection: After the deal, the top card of the draw pile is drawn face up. 
+This card determines the trump suit for the round. 
+If either player wants the face-up card to be trump, they pick it up and discard a card from their hand face down.
+
+Play: The non-dealer goes first. Players must follow suit if possible, otherwise, they can play any card. 
+The highest card of the lead suit or the highest trump card wins the trick. The winner of each trick leads to the next one.
+
+Scoring: Players score points by winning tricks. 
+The player who takes three or more tricks scores one point. If the player who chose trump fails to take three tricks, they are "euchred,"
+ and their opponent scores two points. The first player to reach 5 points wins.
+
+
+
+
+</value>
+  </data>
 </root>

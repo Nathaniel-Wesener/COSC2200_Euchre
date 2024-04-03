@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COSC2200_Euchre
 {
-    internal class EuchreGame
+    internal class EuchreGame : EuchreCardGame
     {
         public Player humanPlayer;
         public Player aiPlayer;
@@ -154,12 +154,19 @@ namespace COSC2200_Euchre
             }
         }
         
+
         void playerChoice(Card possibleCard) 
         {
             // TODO: fix not being able to enable form controls from here or add a function in the main form that enables and disables controls.
             EuchreCardGame.buttonAcceptTrump.enabled = true;
         }
 
+
+
+         public void AcceptTrump()
+        {
+
+        }
         /// <summary>
         /// Function that deals cards to the players.
         /// </summary>
