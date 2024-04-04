@@ -2,6 +2,7 @@ namespace COSC2200_Euchre
 {
     public partial class EuchreCardGame : Form
     {
+        private string _SelectedTrump = string.Empty;
         public EuchreCardGame()
         {
             InitializeComponent();
@@ -34,26 +35,22 @@ namespace COSC2200_Euchre
 
         private void buttonNewGame_Click(object sender, EventArgs e)
         {
+            var game = new EuchreGame(5);
 
+            game.Show(this);
         }
 
         private void comboBoxSelectTrump_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            _SelectedTrump = comboBoxSelectTrump.Text;
         }
 
         private void buttonAcceptTrump_Click(object sender, EventArgs e)
         {
-            EuchreGame.AcceptTrump();
-
+            labelCurrentTrumpDisplay.Text = _SelectedTrump;
         }
 
-        private void groupBoxPlayerControls_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBoxAI_Enter(object sender, EventArgs e)
+        private void groupBoxCurrentStats_Enter(object sender, EventArgs e)
         {
 
         }
