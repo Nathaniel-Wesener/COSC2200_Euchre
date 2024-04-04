@@ -35,7 +35,7 @@ namespace COSC2200_Euchre
 
         private void buttonNewGame_Click(object sender, EventArgs e)
         {
-            var game = new EuchreGame(5);
+            var game = new EuchreGame(5, this);
 
             game.Show(this);
         }
@@ -53,6 +53,21 @@ namespace COSC2200_Euchre
         private void groupBoxCurrentStats_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        public void enableDisableButtonAcceptTrump(bool enDis)
+        {
+            buttonAcceptTrump.Enabled = enDis;
+        }
+        public void addNewItemsToCardsToPlay(List<Card> validCards)
+        {
+            comboBoxPlayCard.Enabled = true;
+            buttonPlayCard.Enabled = true;
+            comboBoxPlayCard.Items.Clear();
+            foreach (Card card in validCards)
+            {
+                comboBoxPlayCard.Items.Add(card);
+            }
         }
     }
 }

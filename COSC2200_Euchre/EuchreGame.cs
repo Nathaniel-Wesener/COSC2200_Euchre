@@ -8,6 +8,7 @@ namespace COSC2200_Euchre
 {
     internal class EuchreGame : EuchreCardGame
     {
+        public EuchreCardGame form;
         public Player humanPlayer;
         public Player aiPlayer;
         public int pointsToWin;
@@ -17,8 +18,9 @@ namespace COSC2200_Euchre
         public Deck deck;
         public int stage;
 
-        public EuchreGame(int pointsToWin)
+        public EuchreGame(int pointsToWin, EuchreCardGame form)
         {
+            this.form = form;
             humanPlayer = new Player(false);
             aiPlayer = new Player(true);
             this.pointsToWin = pointsToWin;
@@ -161,7 +163,7 @@ namespace COSC2200_Euchre
             else
             {
                 // TODO: fix this button enabling as well
-                EuchreCardGame.buttonAcceptTrump.enabled = true;
+                form.enableDisableButtonAcceptTrump(true);
             }
         }
         
@@ -169,7 +171,7 @@ namespace COSC2200_Euchre
         void playerChoice(Card possibleCard) 
         {
             // TODO: fix not being able to enable form controls from here or add a function in the main form that enables and disables controls.
-            EuchreCardGame.buttonAcceptTrump.enabled = true;
+            form.enableDisableButtonAcceptTrump(true);
         }
 
 
@@ -226,13 +228,7 @@ namespace COSC2200_Euchre
         }
         void playerMakerTrick()
         {
-            EuchreCardGame.comboBoxPlayCard.Collection.Clear();
-            foreach (var item in humanPlayer.cardsInHand)
-            {
-                EuchreCardGame.comboBoxPlayCard.Collection.add(item.toString());
-            }
-            EuchreCardGame.buttonPlayCard.Enabled = true;
-            EuchreCardGame.comboBoxPlayCard.Enabled = true;
+            form.addNewItemsToCardsToPlay(humanPlayer.cardsInHand);
         }
         void aiResponseTrick()
         {
@@ -298,9 +294,27 @@ namespace COSC2200_Euchre
         
         void playerResponseTrick()
         {
-            if (trumpCard != null && aiPlayer.playedCard != null)
+            bool validCards = false;
+            List<Card> playableCards = new List<Card>();
+            if (aiPlayer.playedCard != null)
             {
-                GenerateList(trumpCard.cardSuiteNum, aiPlayer.playedCard.cardSuiteNum);
+                foreach (var item in humanPlayer.cardsInHand)
+                {
+                    if(item.cardSuiteNum == aiPlayer.playedCard.cardSuiteNum)
+                    {
+                        validCards = true;
+                        playableCards.Add(item);
+                    }
+                }
+                if (validCards)
+                {
+                    form.addNewItemsToCardsToPlay(playableCards);
+                }
+                else
+                {
+                    form.addNewItemsToCardsToPlay(humanPlayer.cardsInHand);
+            
+                }
             }
         }
 
