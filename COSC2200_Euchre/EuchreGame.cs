@@ -182,11 +182,15 @@ namespace COSC2200_Euchre
         }
         void playerSecondTrumpChoice()
         {
-            //TODO: Enable Comboboc etc. -IL
+            //TODO: Enable Combobox etc. -IL
+            comboBoxSelectTrump.Enabled = true;
+            buttonAcceptTrump.Enabled = true;
         }
         void playerChoseTrumpWild(int newtrump)
         {
             // sets the wild trump choice for the played
+            currentGame.currentTrump = newtrump;
+            form.changeCurrentTrump(currentGame.deck.cards[newtrump].cardSuiteStr);
         }
 
 
@@ -436,10 +440,12 @@ namespace COSC2200_Euchre
             if (humanPlayer.points >= pointsToWin)
             {
                 //TODO: Make a victory thing - IL
+                MessageBox.Show("Congratulations! You win the game!", "Victory", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (aiPlayer.points >= pointsToWin)
             {
                 //TODO: Make a loss thing. - IL
+                MessageBox.Show("Sorry! You lose the game!", "Defeat", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             // Start a new round.
             else
