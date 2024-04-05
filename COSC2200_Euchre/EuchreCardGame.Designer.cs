@@ -66,9 +66,9 @@
             comboBoxSelectTrump = new ComboBox();
             groupBoxAI = new GroupBox();
             groupBoxPlayFieldPlayer = new GroupBox();
-            toolTip1 = new ToolTip(components);
-            textBoxTrumpCanditate = new TextBox();
             labelTrumpCanditate = new Label();
+            textBoxTrumpCanditate = new TextBox();
+            toolTip1 = new ToolTip(components);
             menuStripForm1.SuspendLayout();
             groupBoxControls.SuspendLayout();
             groupBoxStats.SuspendLayout();
@@ -353,6 +353,7 @@
             buttonPlayCard.TabIndex = 7;
             buttonPlayCard.Text = "&Play Card";
             buttonPlayCard.UseVisualStyleBackColor = false;
+            buttonPlayCard.Click += buttonPlayCard_Click;
             // 
             // labelPlayCard
             // 
@@ -444,13 +445,6 @@
             groupBoxPlayFieldPlayer.TabStop = false;
             groupBoxPlayFieldPlayer.Text = "The Players's Table";
             // 
-            // textBoxTrumpCanditate
-            // 
-            textBoxTrumpCanditate.Location = new Point(155, 26);
-            textBoxTrumpCanditate.Name = "textBoxTrumpCanditate";
-            textBoxTrumpCanditate.Size = new Size(125, 27);
-            textBoxTrumpCanditate.TabIndex = 0;
-            // 
             // labelTrumpCanditate
             // 
             labelTrumpCanditate.AutoSize = true;
@@ -459,6 +453,13 @@
             labelTrumpCanditate.Size = new Size(122, 20);
             labelTrumpCanditate.TabIndex = 1;
             labelTrumpCanditate.Text = "Trump Canditate:";
+            // 
+            // textBoxTrumpCanditate
+            // 
+            textBoxTrumpCanditate.Location = new Point(155, 26);
+            textBoxTrumpCanditate.Name = "textBoxTrumpCanditate";
+            textBoxTrumpCanditate.Size = new Size(125, 27);
+            textBoxTrumpCanditate.TabIndex = 0;
             // 
             // EuchreCardGame
             // 

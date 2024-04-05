@@ -349,6 +349,8 @@ namespace COSC2200_Euchre
             //TODO: function that is implemented when the player has played a card in response.
             //must set the players played card to the one they played and remove that card from their hand.
             //then compare cards. - NW
+
+
         }
 
         /// <summary>

@@ -101,5 +101,17 @@ namespace COSC2200_Euchre
         {
             labelCurrentTrumpDisplay.Text = suite;
         }
+
+        private void buttonPlayCard_Click(object sender, EventArgs e)
+        {
+            if (currentGame.aiPlayer.isMaker)
+            {
+                
+            }
+            else
+            {
+                
+            }
+        }
     }
 }
