@@ -106,11 +106,11 @@ namespace COSC2200_Euchre
         {
             if (currentGame.aiPlayer.isMaker)
             {
-                
+                currentGame.playerResponded();
             }
             else
             {
-                
+                currentGame.playerPlayed();
             }
         }
     }
