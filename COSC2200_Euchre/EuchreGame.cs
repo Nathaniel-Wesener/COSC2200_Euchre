@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COSC2200_Euchre
 {
-    internal class EuchreGame : EuchreCardGame
+    public class EuchreGame : EuchreCardGame
     {
         public EuchreCardGame form;
         public Player humanPlayer;
@@ -77,6 +77,7 @@ namespace COSC2200_Euchre
         /// </summary>
         public void gameStage()
         {
+            
             if (stage == 0)
             {
                 startGame();
@@ -120,7 +121,9 @@ namespace COSC2200_Euchre
             {
                 dealCards(humanPlayer, aiPlayer);
             }
+            form.displayCardsInHand(humanPlayer.cardsInHand);
             trumpCard = deck.cards[10];
+            form.displayTrumpCanditate(trumpCard);
             
             // Send to different functions depending on which player is choosing.
             if (aiPlayer.isChoosing)
@@ -158,6 +161,11 @@ namespace COSC2200_Euchre
                 stage = 2;
                 aiPlayer.isMaker = true;
                 humanPlayer.isMaker = false;
+                if (trumpCard != null)
+                {
+                    form.changeCurrentTrump(trumpCard.cardSuiteStr);  
+                }
+                
                 gameStage();
             }
             else
@@ -173,10 +181,18 @@ namespace COSC2200_Euchre
             // TODO: fix not being able to enable form controls from here or add a function in the main form that enables and disables controls.
             form.enableDisableButtonAcceptTrump(true);
         }
+        void playerSecondTrumpChoice()
+        {
+            //TODO: Enable Comboboc etc.
+        }
+        void playerChoseTrumpWild(int newtrump)
+        {
+
+        }
 
 
 
-         public void AcceptTrump()
+        public void AcceptTrump()
         {
 
         }
@@ -211,10 +227,12 @@ namespace COSC2200_Euchre
         {
             if (aiPlayer.isMaker)
             {
+                form.changeCurrentMaker("AI");
                 aiMakerTrick();
             }
             else
             {
+                form.changeCurrentMaker("You");
                 playerMakerTrick();
             }
         }

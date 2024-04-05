@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COSC2200_Euchre
 {
-    internal class Card
+    public class Card
     {
         public int cardSuiteNum;
         public int cardRankNum;

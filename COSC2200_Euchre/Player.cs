@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COSC2200_Euchre
 {
-    internal class Player
+    public class Player
     {
 
         public int tricksWon;

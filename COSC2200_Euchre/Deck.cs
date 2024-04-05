@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace COSC2200_Euchre
 {
-    internal class Deck
+    public class Deck
     {
         
         public const int NumCards = 24;

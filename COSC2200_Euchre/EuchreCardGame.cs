@@ -3,6 +3,9 @@ namespace COSC2200_Euchre
     public partial class EuchreCardGame : Form
     {
         private string _SelectedTrump = string.Empty;
+        public EuchreGame currentGame;
+
+
         public EuchreCardGame()
         {
             InitializeComponent();
@@ -36,8 +39,9 @@ namespace COSC2200_Euchre
         private void buttonNewGame_Click(object sender, EventArgs e)
         {
             var game = new EuchreGame(5, this);
-
-            game.Show(this);
+            currentGame = game;
+            //game.Show(this);
+            game.gameStage();
         }
 
         private void comboBoxSelectTrump_SelectedIndexChanged(object sender, EventArgs e)
@@ -47,7 +51,14 @@ namespace COSC2200_Euchre
 
         private void buttonAcceptTrump_Click(object sender, EventArgs e)
         {
-            labelCurrentTrumpDisplay.Text = _SelectedTrump;
+            if (comboBoxSelectTrump.Enabled)
+            {
+
+            }
+            else
+            {
+
+            }
         }
 
         private void groupBoxCurrentStats_Enter(object sender, EventArgs e)
@@ -68,6 +79,27 @@ namespace COSC2200_Euchre
             {
                 comboBoxPlayCard.Items.Add(card);
             }
+        }
+        public void displayTrumpCanditate(Card card)
+        {
+            textBoxTrumpCanditate.Text = card.toString();
+        }
+        public void displayCardsInHand(List<Card> cards)
+        {
+            List<String> list = new List<String>();
+            foreach (Card card in cards)
+            {
+                list.Add(card.toString());
+            }
+            listBoxYourHand.DataSource = list;
+        }
+        public void changeCurrentMaker(string maker)
+        {
+            labelCurrentMakerDisplay.Text = maker;
+        }
+        public void changeCurrentTrump(string suite)
+        {
+            labelCurrentTrumpDisplay.Text = suite;
         }
     }
 }
