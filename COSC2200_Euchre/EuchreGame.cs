@@ -244,8 +244,41 @@ namespace COSC2200_Euchre
         void aiMakerTrick()
         {
             //TODO: Make the ai decide the best card and then play it. -NW
-            
-            
+            List<Card> trumpCards = new List<Card>();
+            bool hasTrumpCards = false;
+            foreach (Card card in aiPlayer.cardsInHand)
+            {
+                if(card.cardSuiteNum == currentTrump)
+                {
+                    hasTrumpCards = true;
+                    trumpCards.Add(card);
+                }
+            }
+            if (hasTrumpCards)
+            {
+                Card cardToPlay = trumpCards[0];
+
+                foreach (var item in trumpCards)
+                {
+                    if (item.cardRankNum == 11)
+                    {
+                        cardToPlay = item;
+                        break;
+                    }
+                    else if(item.cardRankNum > cardToPlay.cardRankNum)
+                    {
+                        cardToPlay = item;
+                    }
+                }
+                aiPlayer.playedCard = cardToPlay;
+                aiPlayer.cardsInHand.Remove(cardToPlay);
+            }
+            else
+            {
+                aiPlayer.playedCard = aiPlayer.cardsInHand[0];
+                aiPlayer.cardsInHand.RemoveAt(0);
+            }
+            form.displayAIPlayedCard(aiPlayer.playedCard);
             playerResponseTrick();
 
         }
@@ -317,7 +350,6 @@ namespace COSC2200_Euchre
                     
                 }
                 determineTrickWinner();
-
             }
 
         }
@@ -348,11 +380,37 @@ namespace COSC2200_Euchre
             }
         }
 
-        public void playerResponded()
+        public void playerResponded(int index)
         {
             //TODO: function that is implemented when the player has played a card in response.
             //must set the players played card to the one they played and remove that card from their hand.
             //then compare cards. - NW
+
+            bool validCards = false;
+            List<Card> playableCards = new List<Card>();
+            if (aiPlayer.playedCard != null)
+            {
+                foreach (var item in humanPlayer.cardsInHand)
+                {
+                    if (item.cardSuiteNum == aiPlayer.playedCard.cardSuiteNum)
+                    {
+                        validCards = true;
+                        playableCards.Add(item);
+                    }
+                }
+                if (validCards)
+                {
+                    humanPlayer.playedCard = playableCards[index];
+                    humanPlayer.cardsInHand.Remove(humanPlayer.playedCard);
+                }
+                else
+                {
+                    humanPlayer.playedCard = humanPlayer.cardsInHand[index];
+                    humanPlayer.cardsInHand.Remove(humanPlayer.playedCard);
+
+                }
+            }
+            determineTrickWinner();
 
 
         }

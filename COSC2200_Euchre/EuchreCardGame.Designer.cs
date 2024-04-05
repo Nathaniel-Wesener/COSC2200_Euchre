@@ -69,6 +69,8 @@
             labelTrumpCanditate = new Label();
             textBoxTrumpCanditate = new TextBox();
             toolTip1 = new ToolTip(components);
+            labelAIPlayedCard = new Label();
+            textBoxAIPlayedCard = new TextBox();
             menuStripForm1.SuspendLayout();
             groupBoxControls.SuspendLayout();
             groupBoxStats.SuspendLayout();
@@ -435,6 +437,8 @@
             // groupBoxPlayFieldPlayer
             // 
             groupBoxPlayFieldPlayer.BackColor = SystemColors.ControlLight;
+            groupBoxPlayFieldPlayer.Controls.Add(textBoxAIPlayedCard);
+            groupBoxPlayFieldPlayer.Controls.Add(labelAIPlayedCard);
             groupBoxPlayFieldPlayer.Controls.Add(labelTrumpCanditate);
             groupBoxPlayFieldPlayer.Controls.Add(textBoxTrumpCanditate);
             groupBoxPlayFieldPlayer.FlatStyle = FlatStyle.Flat;
@@ -460,6 +464,22 @@
             textBoxTrumpCanditate.Name = "textBoxTrumpCanditate";
             textBoxTrumpCanditate.Size = new Size(125, 27);
             textBoxTrumpCanditate.TabIndex = 0;
+            // 
+            // labelAIPlayedCard
+            // 
+            labelAIPlayedCard.AutoSize = true;
+            labelAIPlayedCard.Location = new Point(27, 55);
+            labelAIPlayedCard.Name = "labelAIPlayedCard";
+            labelAIPlayedCard.Size = new Size(109, 20);
+            labelAIPlayedCard.TabIndex = 2;
+            labelAIPlayedCard.Text = "Card AI Played:";
+            // 
+            // textBoxAIPlayedCard
+            // 
+            textBoxAIPlayedCard.Location = new Point(155, 52);
+            textBoxAIPlayedCard.Name = "textBoxAIPlayedCard";
+            textBoxAIPlayedCard.Size = new Size(125, 27);
+            textBoxAIPlayedCard.TabIndex = 3;
             // 
             // EuchreCardGame
             // 
@@ -533,5 +553,7 @@
         public ComboBox comboBoxPlayCard;
         private Label labelTrumpCanditate;
         private TextBox textBoxTrumpCanditate;
+        private TextBox textBoxAIPlayedCard;
+        private Label labelAIPlayedCard;
     }
 }

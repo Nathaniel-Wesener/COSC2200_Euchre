@@ -106,12 +106,16 @@ namespace COSC2200_Euchre
         {
             if (currentGame.aiPlayer.isMaker)
             {
-                currentGame.playerResponded();
+                currentGame.playerResponded(comboBoxPlayCard.SelectedIndex);
             }
             else
             {
                 currentGame.playerPlayed();
             }
+        }
+        public void displayAIPlayedCard(Card card)
+        {
+            textBoxAIPlayedCard.Text = card.toString();
         }
     }
 }
