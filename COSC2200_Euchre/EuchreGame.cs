@@ -111,6 +111,9 @@ namespace COSC2200_Euchre
             aiPlayer.tricksWon = 0;
             humanPlayer.tricksWon = 0;
 
+            form.trickCounterLabelAI(aiPlayer.tricksWon);
+            form.trickCounterLabelHuman(humanPlayer.tricksWon);
+
             // Shuffle the deck then deal.
             deck.Shuffle();
             if (aiPlayer.isChoosing)
@@ -183,10 +186,10 @@ namespace COSC2200_Euchre
         void playerSecondTrumpChoice()
         {
             //TODO: Enable Combobox etc. -IL
-            comboBoxSelectTrump.Enabled = true;
+            form.comboBoxSelectTrump.Enabled = true;
             buttonAcceptTrump.Enabled = true;
         }
-        void playerChoseTrumpWild(int newtrump)
+        public void playerChoseTrumpWild(int newtrump)
         {
             // sets the wild trump choice for the played
             currentGame.currentTrump = newtrump;
@@ -201,15 +204,27 @@ namespace COSC2200_Euchre
             //TODO: activate when player clicks accept trump. then sets the trump in the class and moves 
             // to the next game stage. -FB
 
-            if (!string.IsNullOrEmpty(_SelectedTrump))
+            if (trumpCard != null)
             {
-                currentTrump = Array.IndexOf(Card.SuiteNames, _SelectedTrump);
+                int worstCardInHand = 0;
+                currentTrump = trumpCard.cardRankNum;
+                int i = -1;
+                foreach (Card card in humanPlayer.cardsInHand)
+                {
+                    i++;
+                    if (card.cardSuiteNum != currentTrump && card.cardRankNum <= humanPlayer.cardsInHand[worstCardInHand].cardRankNum) { worstCardInHand = i; }
+                }
+                humanPlayer.cardsInHand[worstCardInHand] = trumpCard;
+                humanPlayer.isMaker = true;
+                aiPlayer.isMaker = false;
+                form.displayCardsInHand(humanPlayer.cardsInHand);
+                form.buttonAcceptTrump.Enabled = false;
                 stage++;
                 gameStage();
             }
         }
 
-    }
+    
         /// <summary>
         /// Function that deals cards to the players.
         /// </summary>
@@ -241,6 +256,7 @@ namespace COSC2200_Euchre
         {
             if (aiPlayer.isMaker)
             {
+                
                 form.changeCurrentMaker("AI");
                 aiMakerTrick();
             }
@@ -296,40 +312,19 @@ namespace COSC2200_Euchre
             form.addNewItemsToCardsToPlay(humanPlayer.cardsInHand);
         }
 
-        public void playerPlayed()
+        public void playerPlayed(int index)
         {
             // TODO: activate when the player plays a card and displays that card. removes the played card from the
             // players hand and ssets their played card to that card. displays the new hand with the removed card.
             // call the ai response trick function. - FB
-            bool hasTrumpCards = humanPlayer.cardsInHand.Any(card => card.cardSuiteNum == currentTrump);
-            if (hasTrumpCards)
-            {
-                Card cardToPlay = humanPlayer.cardsInHand.FirstOrDefault(card => card.cardSuiteNum == currentTrump);
-
-                foreach (var item in humanPlayer.cardsInHand)
-                {
-                    if (item.cardRankNum == 11)
-                    {
-                        cardToPlay = item;
-                        break;
-                    }
-                    else if (item.cardSuiteNum == currentTrump && item.cardRankNum > cardToPlay.cardRankNum)
-                    {
-                        cardToPlay = item;
-                    }
-                }
-                humanPlayer.playedCard = cardToPlay;
-                humanPlayer.cardsInHand.Remove(cardToPlay);
-            }
-            else
-            {
-                humanPlayer.playedCard = humanPlayer.cardsInHand[0];
-                humanPlayer.cardsInHand.RemoveAt(0);
-            }
+            // bool hasTrumpCards = humanPlayer.cardsInHand.Any(card => card.cardSuiteNum == currentTrump);
+            humanPlayer.playedCard = humanPlayer.cardsInHand[index];
+            humanPlayer.cardsInHand.RemoveAt(index);
             form.displayHumanPlayedCard(humanPlayer.playedCard);
+            form.displayCardsInHand(humanPlayer.cardsInHand);
             aiResponseTrick();
         }
-    }
+    
         void aiResponseTrick()
         {
             if(trumpCard != null && humanPlayer.playedCard != null)
@@ -361,8 +356,9 @@ namespace COSC2200_Euchre
                     }
                     if (!playCard)
                     {
-                        aiPlayer.cardsInHand.Remove(playableCards[0]);
+                        
                         aiPlayer.playedCard = playableCards[0];
+                        aiPlayer.cardsInHand.Remove(playableCards[0]);
                     }
                     
                 }
@@ -386,6 +382,11 @@ namespace COSC2200_Euchre
                     }
                     
                 }
+                if(aiPlayer.playedCard != null)
+                {
+                    form.displayAIPlayedCard(aiPlayer.playedCard);
+                }
+                
                 determineTrickWinner();
             }
 
@@ -494,21 +495,25 @@ namespace COSC2200_Euchre
                     aiPlayer.isMaker = false;
                     humanPlayer.isMaker = true;
                     humanPlayer.tricksWon++;
+                    form.trickCounterLabelHuman(humanPlayer.tricksWon);
                 }
                 else
                 {
                     humanPlayer.isMaker = false;
                     aiPlayer.isMaker = true;
                     aiPlayer.tricksWon++;
+                    form.trickCounterLabelAI(aiPlayer.tricksWon);
                 }
 
                 // Determine wheter the round is over.
-                if(aiPlayer.tricksWon + humanPlayer.tricksWon < 5)
+                if((aiPlayer.tricksWon + humanPlayer.tricksWon) < 5)
                 {
+                    form.clearTextBoxes();
                     playATrick();
                 }
                 else
                 {
+                    form.clearTextBoxes();
                     roundEnd();
                 }
             }

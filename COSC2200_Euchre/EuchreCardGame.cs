@@ -2,13 +2,21 @@ namespace COSC2200_Euchre
 {
     public partial class EuchreCardGame : Form
     {
-        private string _SelectedTrump = string.Empty;
+        public string _SelectedTrump = string.Empty;
         public EuchreGame currentGame;
 
 
         public EuchreCardGame()
         {
             InitializeComponent();
+        }
+
+        public void setDefaults()
+        {
+            comboBoxSelectTrump.Enabled = false;
+            comboBoxPlayCard.Enabled = false;
+            buttonAcceptTrump.Enabled = false;
+            buttonPlayCard.Enabled = false;
         }
 
         // TODO: Make a lot of function comments. - NW
@@ -53,11 +61,11 @@ namespace COSC2200_Euchre
         {
             if (comboBoxSelectTrump.Enabled)
             {
-
+                currentGame.playerChoseTrumpWild(comboBoxSelectTrump.SelectedIndex);
             }
             else
             {
-
+                currentGame.AcceptTrump();
             }
         }
 
@@ -73,11 +81,13 @@ namespace COSC2200_Euchre
         public void addNewItemsToCardsToPlay(List<Card> validCards)
         {
             comboBoxPlayCard.Enabled = true;
+            comboBoxPlayCard.Text = "";
             buttonPlayCard.Enabled = true;
             comboBoxPlayCard.Items.Clear();
+            comboBoxPlayCard.SelectedIndex = -1;
             foreach (Card card in validCards)
             {
-                comboBoxPlayCard.Items.Add(card);
+                comboBoxPlayCard.Items.Add(card.toString());
             }
         }
         public void displayTrumpCanditate(Card card)
@@ -104,18 +114,51 @@ namespace COSC2200_Euchre
 
         private void buttonPlayCard_Click(object sender, EventArgs e)
         {
-            if (currentGame.aiPlayer.isMaker)
+            if (comboBoxPlayCard.SelectedIndex == -1)
             {
-                currentGame.playerResponded(comboBoxPlayCard.SelectedIndex);
+                MessageBox.Show("ERROR: pick a card to play!");
             }
             else
             {
-                currentGame.playerPlayed();
+                if (currentGame.aiPlayer.isMaker)
+                {
+                    currentGame.playerResponded(comboBoxPlayCard.SelectedIndex);
+                }
+                else
+                {
+                    currentGame.playerPlayed(comboBoxPlayCard.SelectedIndex);
+                }
             }
+
         }
         public void displayAIPlayedCard(Card card)
         {
             textBoxAIPlayedCard.Text = card.toString();
+        }
+        public void displayHumanPlayedCard(Card card)
+        {
+            textBoxCardHumanPlayed.Text = card.toString();
+        }
+
+        private void EuchreCardGame_Load(object sender, EventArgs e)
+        {
+            setDefaults();
+        }
+
+        public void clearTextBoxes()
+        {
+            textBoxAIPlayedCard.Text = "";
+            textBoxCardHumanPlayed.Text = "";
+        }
+
+        public void trickCounterLabelAI(int i)
+        {
+            labelAITrickCounterDisplay.Text = i.ToString();
+        }
+
+        public void trickCounterLabelHuman(int i)
+        {
+            labelPlayerTrickCounterDisplay.Text = i.ToString();
         }
     }
 }

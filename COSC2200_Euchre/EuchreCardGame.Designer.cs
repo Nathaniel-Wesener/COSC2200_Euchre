@@ -66,11 +66,14 @@
             comboBoxSelectTrump = new ComboBox();
             groupBoxAI = new GroupBox();
             groupBoxPlayFieldPlayer = new GroupBox();
+            textBoxCardHumanPlayed = new TextBox();
+            labelCardHumanPlayed = new Label();
+            textBoxAIPlayedCard = new TextBox();
+            labelAIPlayedCard = new Label();
             labelTrumpCanditate = new Label();
             textBoxTrumpCanditate = new TextBox();
             toolTip1 = new ToolTip(components);
-            labelAIPlayedCard = new Label();
-            textBoxAIPlayedCard = new TextBox();
+            buttonDeclineTrump = new Button();
             menuStripForm1.SuspendLayout();
             groupBoxControls.SuspendLayout();
             groupBoxStats.SuspendLayout();
@@ -330,6 +333,7 @@
             // 
             // groupBoxPlayerControls
             // 
+            groupBoxPlayerControls.Controls.Add(buttonDeclineTrump);
             groupBoxPlayerControls.Controls.Add(buttonPlayCard);
             groupBoxPlayerControls.Controls.Add(labelPlayCard);
             groupBoxPlayerControls.Controls.Add(comboBoxPlayCard);
@@ -437,6 +441,8 @@
             // groupBoxPlayFieldPlayer
             // 
             groupBoxPlayFieldPlayer.BackColor = SystemColors.ControlLight;
+            groupBoxPlayFieldPlayer.Controls.Add(textBoxCardHumanPlayed);
+            groupBoxPlayFieldPlayer.Controls.Add(labelCardHumanPlayed);
             groupBoxPlayFieldPlayer.Controls.Add(textBoxAIPlayedCard);
             groupBoxPlayFieldPlayer.Controls.Add(labelAIPlayedCard);
             groupBoxPlayFieldPlayer.Controls.Add(labelTrumpCanditate);
@@ -449,6 +455,40 @@
             groupBoxPlayFieldPlayer.TabStop = false;
             groupBoxPlayFieldPlayer.Text = "The Players's Table";
             // 
+            // textBoxCardHumanPlayed
+            // 
+            textBoxCardHumanPlayed.Enabled = false;
+            textBoxCardHumanPlayed.Location = new Point(155, 80);
+            textBoxCardHumanPlayed.Name = "textBoxCardHumanPlayed";
+            textBoxCardHumanPlayed.Size = new Size(125, 27);
+            textBoxCardHumanPlayed.TabIndex = 5;
+            // 
+            // labelCardHumanPlayed
+            // 
+            labelCardHumanPlayed.AutoSize = true;
+            labelCardHumanPlayed.Location = new Point(27, 87);
+            labelCardHumanPlayed.Name = "labelCardHumanPlayed";
+            labelCardHumanPlayed.Size = new Size(119, 20);
+            labelCardHumanPlayed.TabIndex = 4;
+            labelCardHumanPlayed.Text = "Card You Played:";
+            // 
+            // textBoxAIPlayedCard
+            // 
+            textBoxAIPlayedCard.Enabled = false;
+            textBoxAIPlayedCard.Location = new Point(155, 52);
+            textBoxAIPlayedCard.Name = "textBoxAIPlayedCard";
+            textBoxAIPlayedCard.Size = new Size(125, 27);
+            textBoxAIPlayedCard.TabIndex = 3;
+            // 
+            // labelAIPlayedCard
+            // 
+            labelAIPlayedCard.AutoSize = true;
+            labelAIPlayedCard.Location = new Point(27, 55);
+            labelAIPlayedCard.Name = "labelAIPlayedCard";
+            labelAIPlayedCard.Size = new Size(109, 20);
+            labelAIPlayedCard.TabIndex = 2;
+            labelAIPlayedCard.Text = "Card AI Played:";
+            // 
             // labelTrumpCanditate
             // 
             labelTrumpCanditate.AutoSize = true;
@@ -460,26 +500,22 @@
             // 
             // textBoxTrumpCanditate
             // 
+            textBoxTrumpCanditate.Enabled = false;
             textBoxTrumpCanditate.Location = new Point(155, 26);
             textBoxTrumpCanditate.Name = "textBoxTrumpCanditate";
             textBoxTrumpCanditate.Size = new Size(125, 27);
             textBoxTrumpCanditate.TabIndex = 0;
             // 
-            // labelAIPlayedCard
+            // buttonDeclineTrump
             // 
-            labelAIPlayedCard.AutoSize = true;
-            labelAIPlayedCard.Location = new Point(27, 55);
-            labelAIPlayedCard.Name = "labelAIPlayedCard";
-            labelAIPlayedCard.Size = new Size(109, 20);
-            labelAIPlayedCard.TabIndex = 2;
-            labelAIPlayedCard.Text = "Card AI Played:";
-            // 
-            // textBoxAIPlayedCard
-            // 
-            textBoxAIPlayedCard.Location = new Point(155, 52);
-            textBoxAIPlayedCard.Name = "textBoxAIPlayedCard";
-            textBoxAIPlayedCard.Size = new Size(125, 27);
-            textBoxAIPlayedCard.TabIndex = 3;
+            buttonDeclineTrump.BackColor = SystemColors.ControlLight;
+            buttonDeclineTrump.FlatStyle = FlatStyle.Flat;
+            buttonDeclineTrump.Location = new Point(6, 70);
+            buttonDeclineTrump.Name = "buttonDeclineTrump";
+            buttonDeclineTrump.Size = new Size(135, 29);
+            buttonDeclineTrump.TabIndex = 8;
+            buttonDeclineTrump.Text = "&Decline Trump";
+            buttonDeclineTrump.UseVisualStyleBackColor = false;
             // 
             // EuchreCardGame
             // 
@@ -496,6 +532,7 @@
             MainMenuStrip = menuStripForm1;
             Name = "EuchreCardGame";
             Text = "Super Awesome Euchre Game!";
+            Load += EuchreCardGame_Load;
             menuStripForm1.ResumeLayout(false);
             menuStripForm1.PerformLayout();
             groupBoxControls.ResumeLayout(false);
@@ -541,7 +578,6 @@
         private GroupBox groupBoxAI;
         private GroupBox groupBoxPlayFieldPlayer;
         private Label labelTrumpSelect;
-        private ComboBox comboBoxSelectTrump;
         private ListBox listBoxYourHand;
         private Label labelPlayCard;
         private Label label;
@@ -555,5 +591,9 @@
         private TextBox textBoxTrumpCanditate;
         private TextBox textBoxAIPlayedCard;
         private Label labelAIPlayedCard;
+        public ComboBox comboBoxSelectTrump;
+        private Label labelCardHumanPlayed;
+        private TextBox textBoxCardHumanPlayed;
+        public Button buttonDeclineTrump;
     }
 }
