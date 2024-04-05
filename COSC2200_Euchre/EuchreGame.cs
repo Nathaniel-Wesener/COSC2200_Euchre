@@ -200,7 +200,16 @@ namespace COSC2200_Euchre
         {
             //TODO: activate when player clicks accept trump. then sets the trump in the class and moves 
             // to the next game stage. -FB
+
+            if (!string.IsNullOrEmpty(_SelectedTrump))
+            {
+                currentTrump = Array.IndexOf(Card.SuiteNames, _SelectedTrump);
+                stage++;
+                gameStage();
+            }
         }
+
+    }
         /// <summary>
         /// Function that deals cards to the players.
         /// </summary>
@@ -292,7 +301,35 @@ namespace COSC2200_Euchre
             // TODO: activate when the player plays a card and displays that card. removes the played card from the
             // players hand and ssets their played card to that card. displays the new hand with the removed card.
             // call the ai response trick function. - FB
+            bool hasTrumpCards = humanPlayer.cardsInHand.Any(card => card.cardSuiteNum == currentTrump);
+            if (hasTrumpCards)
+            {
+                Card cardToPlay = humanPlayer.cardsInHand.FirstOrDefault(card => card.cardSuiteNum == currentTrump);
+
+                foreach (var item in humanPlayer.cardsInHand)
+                {
+                    if (item.cardRankNum == 11)
+                    {
+                        cardToPlay = item;
+                        break;
+                    }
+                    else if (item.cardSuiteNum == currentTrump && item.cardRankNum > cardToPlay.cardRankNum)
+                    {
+                        cardToPlay = item;
+                    }
+                }
+                humanPlayer.playedCard = cardToPlay;
+                humanPlayer.cardsInHand.Remove(cardToPlay);
+            }
+            else
+            {
+                humanPlayer.playedCard = humanPlayer.cardsInHand[0];
+                humanPlayer.cardsInHand.RemoveAt(0);
+            }
+            form.displayHumanPlayedCard(humanPlayer.playedCard);
+            aiResponseTrick();
         }
+    }
         void aiResponseTrick()
         {
             if(trumpCard != null && humanPlayer.playedCard != null)
