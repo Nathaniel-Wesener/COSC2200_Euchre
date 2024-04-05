@@ -170,7 +170,6 @@ namespace COSC2200_Euchre
             }
             else
             {
-                // TODO: fix this button enabling as well
                 form.enableDisableButtonAcceptTrump(true);
             }
         }
@@ -178,23 +177,25 @@ namespace COSC2200_Euchre
 
         void playerChoice(Card possibleCard) 
         {
-            // TODO: fix not being able to enable form controls from here or add a function in the main form that enables and disables controls.
+            
             form.enableDisableButtonAcceptTrump(true);
         }
         void playerSecondTrumpChoice()
         {
-            //TODO: Enable Comboboc etc.
+            //TODO: Enable Comboboc etc. -IL
         }
         void playerChoseTrumpWild(int newtrump)
         {
-
+            // sets the wild trump choice for the played
         }
+
 
 
 
         public void AcceptTrump()
         {
-
+            //TODO: activate when player clicks accept trump. then sets the trump in the class and moves 
+            // to the next game stage. -FB
         }
         /// <summary>
         /// Function that deals cards to the players.
@@ -238,7 +239,7 @@ namespace COSC2200_Euchre
         }
         void aiMakerTrick()
         {
-            //TODO: Make the ai decide the best card and then play it.
+            //TODO: Make the ai decide the best card and then play it. -NW
             
             
             playerResponseTrick();
@@ -247,6 +248,13 @@ namespace COSC2200_Euchre
         void playerMakerTrick()
         {
             form.addNewItemsToCardsToPlay(humanPlayer.cardsInHand);
+        }
+
+        public void playerPlayed()
+        {
+            // TODO: activate when the player plays a card and displays that card. removes the played card from the
+            // players hand and ssets their played card to that card. displays the new hand with the removed card.
+            // call the ai response trick function. - FB
         }
         void aiResponseTrick()
         {
@@ -336,6 +344,13 @@ namespace COSC2200_Euchre
             }
         }
 
+        public void playerResponded()
+        {
+            //TODO: function that is implemented when the player has played a card in response.
+            //must set the players played card to the one they played and remove that card from their hand.
+            //then compare cards. - NW
+        }
+
         /// <summary>
         /// Function that compares two cards to determine which one is better in the current euchre context.
         /// </summary>
@@ -418,11 +433,11 @@ namespace COSC2200_Euchre
             // Determine if a player has enough points to win the game.
             if (humanPlayer.points >= pointsToWin)
             {
-                //TODO: Make a victory thing
+                //TODO: Make a victory thing - IL
             }
             else if (aiPlayer.points >= pointsToWin)
             {
-                //TODO: Make a loss thing.
+                //TODO: Make a loss thing. - IL
             }
             // Start a new round.
             else
