@@ -304,6 +304,7 @@ namespace COSC2200_Euchre
                 aiPlayer.cardsInHand.RemoveAt(0);
             }
             form.displayAIPlayedCard(aiPlayer.playedCard);
+            GenerateList(currentTrump, aiPlayer.playedCard.cardSuiteNum);
             playerResponseTrick();
 
         }
@@ -322,6 +323,7 @@ namespace COSC2200_Euchre
             humanPlayer.cardsInHand.RemoveAt(index);
             form.displayHumanPlayedCard(humanPlayer.playedCard);
             form.displayCardsInHand(humanPlayer.cardsInHand);
+            GenerateList(currentTrump, humanPlayer.playedCard.cardSuiteNum);
             aiResponseTrick();
         }
     
@@ -462,7 +464,6 @@ namespace COSC2200_Euchre
         bool compareCards(Card cardOne, Card cardTwo)
         {
             bool firstCardWins = true;
-            
             foreach (var item in winningcards)
             {
                 if (item == cardOne)
