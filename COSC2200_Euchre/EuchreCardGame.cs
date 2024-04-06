@@ -160,5 +160,15 @@ namespace COSC2200_Euchre
         {
             labelPlayerTrickCounterDisplay.Text = i.ToString();
         }
+
+        private void buttonDeclineTrump_Click(object sender, EventArgs e)
+        {
+            buttonDeclineTrump.Enabled = false;
+            buttonAcceptTrump.Enabled = false;
+            if (currentGame.trumpCard != null)
+            {
+                currentGame.aiChoice(currentGame.trumpCard);
+            }
+        }
     }
 }

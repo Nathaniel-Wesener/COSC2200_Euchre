@@ -37,7 +37,6 @@ namespace COSC2200_Euchre
         /// <param name="suitePlayed"></param>
         public void GenerateList(int suiteTrump, int suitePlayed)
         {
-            winningcards = new List<Card>();
             winningcards.Clear();
             Card card = deck.CardMaker(11, suiteTrump);
             winningcards.Add(card);
@@ -143,7 +142,7 @@ namespace COSC2200_Euchre
         /// Function that lets the ai decide whether or not it wants the trump.
         /// </summary>
         /// <param name="possibleCard">The card that was drawn for trump.</param>
-        void aiChoice(Card possibleCard) 
+        public void aiChoice(Card possibleCard) 
         {
             int trumpSuite = possibleCard.cardSuiteNum;
             int numOfCardsInSuite = 0;
@@ -182,6 +181,7 @@ namespace COSC2200_Euchre
         {
             
             form.enableDisableButtonAcceptTrump(true);
+            form.buttonDeclineTrump.Enabled = true;
         }
         void playerSecondTrumpChoice()
         {
@@ -397,9 +397,11 @@ namespace COSC2200_Euchre
         void playerResponseTrick()
         {
             bool validCards = false;
+            
             List<Card> playableCards = new List<Card>();
             if (aiPlayer.playedCard != null)
             {
+                GenerateList(currentTrump, aiPlayer.playedCard.cardSuiteNum);
                 foreach (var item in humanPlayer.cardsInHand)
                 {
                     if(item.cardSuiteNum == aiPlayer.playedCard.cardSuiteNum)
@@ -471,7 +473,7 @@ namespace COSC2200_Euchre
                     firstCardWins = true;
                     break;
                 }
-                if (item == cardTwo)
+                else if (item == cardTwo)
                 {
                     firstCardWins = false;
                     break;

@@ -56,6 +56,7 @@
             labelAITrickCounter = new Label();
             labelPlayerTricksCounter = new Label();
             groupBoxPlayerControls = new GroupBox();
+            buttonDeclineTrump = new Button();
             buttonPlayCard = new Button();
             labelPlayCard = new Label();
             comboBoxPlayCard = new ComboBox();
@@ -73,7 +74,6 @@
             labelTrumpCanditate = new Label();
             textBoxTrumpCanditate = new TextBox();
             toolTip1 = new ToolTip(components);
-            buttonDeclineTrump = new Button();
             menuStripForm1.SuspendLayout();
             groupBoxControls.SuspendLayout();
             groupBoxStats.SuspendLayout();
@@ -349,6 +349,18 @@
             groupBoxPlayerControls.TabStop = false;
             groupBoxPlayerControls.Text = "Your Controls";
             // 
+            // buttonDeclineTrump
+            // 
+            buttonDeclineTrump.BackColor = SystemColors.ControlLight;
+            buttonDeclineTrump.FlatStyle = FlatStyle.Flat;
+            buttonDeclineTrump.Location = new Point(6, 70);
+            buttonDeclineTrump.Name = "buttonDeclineTrump";
+            buttonDeclineTrump.Size = new Size(135, 29);
+            buttonDeclineTrump.TabIndex = 8;
+            buttonDeclineTrump.Text = "&Decline Trump";
+            buttonDeclineTrump.UseVisualStyleBackColor = false;
+            buttonDeclineTrump.Click += buttonDeclineTrump_Click;
+            // 
             // buttonPlayCard
             // 
             buttonPlayCard.BackColor = SystemColors.ControlLight;
@@ -505,17 +517,6 @@
             textBoxTrumpCanditate.Name = "textBoxTrumpCanditate";
             textBoxTrumpCanditate.Size = new Size(125, 27);
             textBoxTrumpCanditate.TabIndex = 0;
-            // 
-            // buttonDeclineTrump
-            // 
-            buttonDeclineTrump.BackColor = SystemColors.ControlLight;
-            buttonDeclineTrump.FlatStyle = FlatStyle.Flat;
-            buttonDeclineTrump.Location = new Point(6, 70);
-            buttonDeclineTrump.Name = "buttonDeclineTrump";
-            buttonDeclineTrump.Size = new Size(135, 29);
-            buttonDeclineTrump.TabIndex = 8;
-            buttonDeclineTrump.Text = "&Decline Trump";
-            buttonDeclineTrump.UseVisualStyleBackColor = false;
             // 
             // EuchreCardGame
             // 
