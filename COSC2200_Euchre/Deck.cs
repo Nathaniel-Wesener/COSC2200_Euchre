@@ -30,10 +30,10 @@ namespace COSC2200_Euchre
         {
             for (int i = 0; i < (NumCards / NumSuites); i++)
             {
-                cards[i]                              = CardMaker(i + 8, 0);
-                cards[i + NumCards/NumSuites]         = CardMaker(i + 8, 1);
-                cards[i + 2 * (NumCards / NumSuites)] = CardMaker(i + 8, 2);
-                cards[i + 3 * (NumCards / NumSuites)] = CardMaker(i + 8, 3);
+                cards[i]                              = CardMaker(i + 9, 0);
+                cards[i + NumCards/NumSuites]         = CardMaker(i + 9, 1);
+                cards[i + 2 * (NumCards / NumSuites)] = CardMaker(i + 9, 2);
+                cards[i + 3 * (NumCards / NumSuites)] = CardMaker(i + 9, 3);
             }
         }
 
