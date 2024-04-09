@@ -172,7 +172,15 @@ namespace COSC2200_Euchre
             }
             else
             {
-                form.enableDisableButtonAcceptTrump(true);
+                if (humanPlayer.isChoosing)
+                {
+                    playerSecondTrumpChoice();
+                }
+                else
+                {
+                    playerChoice(possibleCard);
+
+                }
             }
         }
         
@@ -187,13 +195,21 @@ namespace COSC2200_Euchre
         {
             //TODO: Enable Combobox etc. -IL
             form.comboBoxSelectTrump.Enabled = true;
-            buttonAcceptTrump.Enabled = true;
+            form.comboBoxSelectTrump.Items.Clear();
+            form.comboBoxSelectTrump.Text = "";
+            form.comboBoxSelectTrump.Items.Add("Hearts");
+            form.comboBoxSelectTrump.Items.Add("Clubs");
+            form.comboBoxSelectTrump.Items.Add("Diamonds");
+            form.comboBoxSelectTrump.Items.Add("Spades");
+            form.comboBoxSelectTrump.SelectedIndex = -1;
+
+            form.buttonAcceptTrump.Enabled = true;
         }
         public void playerChoseTrumpWild(int newtrump)
         {
             // sets the wild trump choice for the played
-            currentGame.currentTrump = newtrump;
-            form.changeCurrentTrump(currentGame.deck.cards[newtrump].cardSuiteStr);
+            currentTrump = newtrump;
+            form.changeCurrentTrump(deck.CardMaker(10, newtrump));
         }
 
 

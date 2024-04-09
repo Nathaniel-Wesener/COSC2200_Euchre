@@ -61,7 +61,18 @@ namespace COSC2200_Euchre
         {
             if (comboBoxSelectTrump.Enabled)
             {
-                currentGame.playerChoseTrumpWild(comboBoxSelectTrump.SelectedIndex);
+                if (comboBoxSelectTrump.SelectedIndex != -1)
+                {
+                    currentGame.playerChoseTrumpWild(comboBoxSelectTrump.SelectedIndex);
+                    comboBoxSelectTrump.Enabled = false;
+                    buttonAcceptTrump.Enabled = false;
+                    buttonDeclineTrump.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("ERROR: Select a trump.");
+                }
+                
             }
             else
             {
@@ -165,7 +176,7 @@ namespace COSC2200_Euchre
         {
             buttonDeclineTrump.Enabled = false;
             buttonAcceptTrump.Enabled = false;
-            if (currentGame.trumpCard != null)
+            if (currentGame.trumpCard != null && currentGame.humanPlayer.isChoosing)
             {
                 currentGame.aiChoice(currentGame.trumpCard);
             }
