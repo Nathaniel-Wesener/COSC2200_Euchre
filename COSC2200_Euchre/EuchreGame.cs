@@ -372,8 +372,8 @@ namespace COSC2200_Euchre
                         playCard = compareCards(card, humanPlayer.playedCard);
                         if (playCard)
                         {
-                            aiPlayer.cardsInHand.Remove(card);
                             aiPlayer.playedCard = card;
+                            aiPlayer.cardsInHand.Remove(card);
                             break;
                         }
                     }
