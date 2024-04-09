@@ -51,7 +51,7 @@ namespace COSC2200_Euchre
             }
             winningcards.Add(card);
 
-            for (int i = 14; i < 9; i--)
+            for (int i = 14; i > 9; i--)
             {
                 if (i != 11)
                 {
@@ -63,7 +63,7 @@ namespace COSC2200_Euchre
             {
                 
 
-                for (int y = 14; y < 9; y--)
+                for (int y = 14; y > 9; y--)
                 {
                     card = deck.CardMaker(y, suitePlayed);
                     winningcards.Add(card);
@@ -209,7 +209,12 @@ namespace COSC2200_Euchre
         {
             // sets the wild trump choice for the played
             currentTrump = newtrump;
-            form.changeCurrentTrump(deck.CardMaker(10, newtrump));
+            Card card = deck.CardMaker(10, newtrump);
+            form.changeCurrentTrump(card.cardSuiteStr);
+            stage++;
+            gameStage();
+
+
         }
 
 
@@ -347,7 +352,7 @@ namespace COSC2200_Euchre
         {
             if(trumpCard != null && humanPlayer.playedCard != null)
             {
-                GenerateList(trumpCard.cardSuiteNum, humanPlayer.playedCard.cardSuiteNum);
+                GenerateList(currentTrump, humanPlayer.playedCard.cardSuiteNum);
                 
                 List<Card> playableCards = new List<Card>();
                 bool cardsInSuite = false;
