@@ -186,6 +186,10 @@ namespace COSC2200_Euchre
             {
                 currentGame.aiChoice(currentGame.trumpCard);
             }
+            else
+            {
+                currentGame.aiChoseWild();
+            }
         }
 
         public void addToHistory(string data)

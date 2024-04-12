@@ -223,6 +223,93 @@ namespace COSC2200_Euchre
 
         }
 
+        public void aiChoseWild()
+        {
+            int hearts = 0;
+            int clubs = 0;
+            int diamonds = 0;
+            int spades = 0;
+
+            foreach (Card card in aiPlayer.cardsInHand)
+            {
+                if (card.cardSuiteNum == 0){ hearts++; }
+                else if(card.cardSuiteNum == 1) { clubs++; }
+                else if (card.cardSuiteNum == 2) { diamonds++; }
+                else { spades++; }
+            }
+
+            Card card;
+            if (hearts >= clubs)
+            {
+                if (hearts >= diamonds)
+                {
+                    if (hearts >= spades)
+                    {
+                        currentTrump = 0;
+                        card = deck.CardMaker(10, 0);
+                        form.changeCurrentTrump(card.cardSuiteStr);
+
+                    }
+                    else
+                    {
+                        currentTrump = 3;
+                        card = deck.CardMaker(10, 3);
+                        form.changeCurrentTrump(card.cardSuiteStr);
+                    }
+                }
+                else if (diamonds >= spades)
+                {
+                    currentTrump = 2;
+                    card = deck.CardMaker(10, 2);
+                    form.changeCurrentTrump(card.cardSuiteStr);
+                }
+                else
+                {
+                    currentTrump = 3;
+                    card = deck.CardMaker(10, 3);
+                    form.changeCurrentTrump(card.cardSuiteStr);
+                }
+            }
+            else
+            {
+                if (clubs >= diamonds)
+                {
+                    if (clubs >= spades)
+                    {
+                        currentTrump = 1;
+                        card = deck.CardMaker(10, 1);
+                        form.changeCurrentTrump(card.cardSuiteStr);
+                    }
+                    else
+                    {
+                        currentTrump = 3;
+                        card = deck.CardMaker(10, 3);
+                        form.changeCurrentTrump(card.cardSuiteStr);
+                    }
+                }
+                else
+                {
+                    if(diamonds >= spades)
+                    {
+                        currentTrump = 2;
+                        card = deck.CardMaker(10, 2);
+                        form.changeCurrentTrump(card.cardSuiteStr);
+                    }
+                    else
+                    {
+                        currentTrump = 3;
+                        card = deck.CardMaker(10, 3);
+                        form.changeCurrentTrump(card.cardSuiteStr);
+                    }
+                }
+                
+            }
+            stage++;
+            form.addToHistory("AI chose trump " + card.cardSuiteStr);
+            gameStage();
+
+        }
+
 
 
 
