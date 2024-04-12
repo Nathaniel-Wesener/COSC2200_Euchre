@@ -513,21 +513,6 @@ namespace COSC2200_Euchre
         }
 
 
-        public override bool Equals(object obj)
-        {
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
-
-            Card otherCard = (Card)obj;
-            return this.cardRankNum == otherCard.cardRankNum && this.cardSuiteNum == otherCard.cardSuiteNum;
-        }
-
-
-
-
-
 
 
 
