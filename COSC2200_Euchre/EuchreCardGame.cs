@@ -18,7 +18,6 @@ namespace COSC2200_Euchre
             buttonAcceptTrump.Enabled = false;
             buttonPlayCard.Enabled = false;
             buttonDeclineTrump.Enabled = false;
-            listBoxHistory.Enabled = false;
             listBoxHistory.Items.Clear();
             comboBoxPlayCard.Items.Clear();
             comboBoxPlayCard.Text = string.Empty;
@@ -52,6 +51,7 @@ namespace COSC2200_Euchre
 
         private void buttonNewGame_Click(object sender, EventArgs e)
         {
+            setDefaults();
             var game = new EuchreGame(5, this);
             currentGame = game;
             //game.Show(this);
