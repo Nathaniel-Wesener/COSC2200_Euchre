@@ -456,10 +456,11 @@
             // listBoxHistory
             // 
             listBoxHistory.FormattingEnabled = true;
+            listBoxHistory.HorizontalScrollbar = true;
             listBoxHistory.ItemHeight = 20;
             listBoxHistory.Location = new Point(6, 26);
             listBoxHistory.Name = "listBoxHistory";
-            listBoxHistory.Size = new Size(361, 104);
+            listBoxHistory.Size = new Size(379, 104);
             listBoxHistory.TabIndex = 0;
             // 
             // groupBoxPlayFieldPlayer
