@@ -17,6 +17,12 @@ namespace COSC2200_Euchre
             comboBoxPlayCard.Enabled = false;
             buttonAcceptTrump.Enabled = false;
             buttonPlayCard.Enabled = false;
+            buttonDeclineTrump.Enabled = false;
+            listBoxHistory.Enabled = false;
+            listBoxHistory.Items.Clear();
+            comboBoxPlayCard.Items.Clear();
+            comboBoxPlayCard.Text = string.Empty;
+
         }
 
         // TODO: Make a lot of function comments. - NW

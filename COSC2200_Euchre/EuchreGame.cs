@@ -594,6 +594,8 @@ namespace COSC2200_Euchre
                     humanPlayer.isChoosing = true;
                     aiPlayer.isChoosing = false;
                 }
+                form.comboBoxPlayCard.SelectedIndex = -1;
+                form.comboBoxPlayCard.Text = string.Empty;
                 stage = 1;
                 gameStage();
             }
