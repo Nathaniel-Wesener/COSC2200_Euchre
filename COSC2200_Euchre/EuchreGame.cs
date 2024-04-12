@@ -98,6 +98,7 @@ namespace COSC2200_Euchre
             humanPlayer.isChoosing = true;
             // TODO: add a way to select a random player to go first.
             stage++;
+            form.addToHistory("Game Start");
             gameStage();
         }
 
@@ -160,6 +161,7 @@ namespace COSC2200_Euchre
             {
                 currentTrump = trumpSuite;
                 aiPlayer.cardsInHand[worstCardInHand] = possibleCard;
+                form.addToHistory("AI accepted the trump card " + possibleCard.toString());
                 stage = 2;
                 aiPlayer.isMaker = true;
                 humanPlayer.isMaker = false;
@@ -175,10 +177,12 @@ namespace COSC2200_Euchre
                 if (humanPlayer.isChoosing)
                 {
                     playerSecondTrumpChoice();
+                    form.addToHistory("Both players refused trump! player chooses trump wild.");
                 }
                 else
                 {
                     playerChoice(possibleCard);
+                    form.addToHistory("AI refused the trump!");
 
                 }
             }
@@ -212,7 +216,9 @@ namespace COSC2200_Euchre
             Card card = deck.CardMaker(10, newtrump);
             form.changeCurrentTrump(card.cardSuiteStr);
             stage++;
+            form.addToHistory("Player chose trump " + card.cardSuiteStr);
             gameStage();
+            
 
 
         }
@@ -240,6 +246,8 @@ namespace COSC2200_Euchre
                 aiPlayer.isMaker = false;
                 form.displayCardsInHand(humanPlayer.cardsInHand);
                 form.buttonAcceptTrump.Enabled = false;
+                form.buttonDeclineTrump.Enabled = false;
+                form.addToHistory("Player chose the trump card " + trumpCard.toString());
                 stage++;
                 gameStage();
             }
@@ -516,6 +524,7 @@ namespace COSC2200_Euchre
 
                 if (humanWins)
                 {
+                    form.addToHistory("Human played " + humanPlayer.playedCard.toString() + " AI played " + aiPlayer.playedCard.toString() + " Human won!");
                     aiPlayer.isMaker = false;
                     humanPlayer.isMaker = true;
                     humanPlayer.tricksWon++;
@@ -523,6 +532,7 @@ namespace COSC2200_Euchre
                 }
                 else
                 {
+                    form.addToHistory("Human played " + humanPlayer.playedCard.toString() + " AI played " + aiPlayer.playedCard.toString() + " AI won!");
                     humanPlayer.isMaker = false;
                     aiPlayer.isMaker = true;
                     aiPlayer.tricksWon++;

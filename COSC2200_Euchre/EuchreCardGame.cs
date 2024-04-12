@@ -72,7 +72,7 @@ namespace COSC2200_Euchre
                 {
                     MessageBox.Show("ERROR: Select a trump.");
                 }
-                
+
             }
             else
             {
@@ -180,6 +180,11 @@ namespace COSC2200_Euchre
             {
                 currentGame.aiChoice(currentGame.trumpCard);
             }
+        }
+
+        public void addToHistory(string data)
+        {
+            listBoxHistory.Items.Add(data + "\n");
         }
     }
 }

@@ -65,7 +65,8 @@
             buttonAcceptTrump = new Button();
             labelTrumpSelect = new Label();
             comboBoxSelectTrump = new ComboBox();
-            groupBoxAI = new GroupBox();
+            groupBoxHistory = new GroupBox();
+            listBoxHistory = new ListBox();
             groupBoxPlayFieldPlayer = new GroupBox();
             textBoxCardHumanPlayed = new TextBox();
             labelCardHumanPlayed = new Label();
@@ -79,6 +80,7 @@
             groupBoxStats.SuspendLayout();
             groupBoxCurrentStats.SuspendLayout();
             groupBoxPlayerControls.SuspendLayout();
+            groupBoxHistory.SuspendLayout();
             groupBoxPlayFieldPlayer.SuspendLayout();
             SuspendLayout();
             // 
@@ -440,15 +442,25 @@
             comboBoxSelectTrump.TabIndex = 1;
             comboBoxSelectTrump.SelectedIndexChanged += comboBoxSelectTrump_SelectedIndexChanged;
             // 
-            // groupBoxAI
+            // groupBoxHistory
             // 
-            groupBoxAI.Location = new Point(688, 120);
-            groupBoxAI.Name = "groupBoxAI";
-            groupBoxAI.Size = new Size(391, 139);
-            groupBoxAI.TabIndex = 5;
-            groupBoxAI.TabStop = false;
-            groupBoxAI.Text = "AI Opponent";
-            toolTip1.SetToolTip(groupBoxAI, "A.I. player");
+            groupBoxHistory.Controls.Add(listBoxHistory);
+            groupBoxHistory.Location = new Point(688, 120);
+            groupBoxHistory.Name = "groupBoxHistory";
+            groupBoxHistory.Size = new Size(391, 139);
+            groupBoxHistory.TabIndex = 5;
+            groupBoxHistory.TabStop = false;
+            groupBoxHistory.Text = "Game History";
+            toolTip1.SetToolTip(groupBoxHistory, "A.I. player");
+            // 
+            // listBoxHistory
+            // 
+            listBoxHistory.FormattingEnabled = true;
+            listBoxHistory.ItemHeight = 20;
+            listBoxHistory.Location = new Point(6, 26);
+            listBoxHistory.Name = "listBoxHistory";
+            listBoxHistory.Size = new Size(361, 104);
+            listBoxHistory.TabIndex = 0;
             // 
             // groupBoxPlayFieldPlayer
             // 
@@ -524,7 +536,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1086, 468);
             Controls.Add(groupBoxPlayFieldPlayer);
-            Controls.Add(groupBoxAI);
+            Controls.Add(groupBoxHistory);
             Controls.Add(groupBoxPlayerControls);
             Controls.Add(groupBoxCurrentStats);
             Controls.Add(groupBoxStats);
@@ -543,6 +555,7 @@
             groupBoxCurrentStats.PerformLayout();
             groupBoxPlayerControls.ResumeLayout(false);
             groupBoxPlayerControls.PerformLayout();
+            groupBoxHistory.ResumeLayout(false);
             groupBoxPlayFieldPlayer.ResumeLayout(false);
             groupBoxPlayFieldPlayer.PerformLayout();
             ResumeLayout(false);
@@ -576,7 +589,7 @@
         private Label labelCurrentTrumpDisplay;
         private Label labelCurrentTrump;
         private Label labelCurrentMakerDisplay;
-        private GroupBox groupBoxAI;
+        private GroupBox groupBoxHistory;
         private GroupBox groupBoxPlayFieldPlayer;
         private Label labelTrumpSelect;
         private ListBox listBoxYourHand;
@@ -596,5 +609,6 @@
         private Label labelCardHumanPlayed;
         private TextBox textBoxCardHumanPlayed;
         public Button buttonDeclineTrump;
+        private ListBox listBoxHistory;
     }
 }
