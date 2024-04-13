@@ -304,6 +304,8 @@ namespace COSC2200_Euchre
                 }
                 
             }
+            aiPlayer.isMaker = true;
+            humanPlayer.isMaker = false;
             stage++;
             form.addToHistory("AI chose trump " + card.cardSuiteStr);
             gameStage();
