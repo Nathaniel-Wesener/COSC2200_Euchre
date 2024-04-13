@@ -586,14 +586,16 @@ namespace COSC2200_Euchre
             bool firstCardWins = true;
             foreach (var item in winningcards)
             {
-                if (item == cardOne)
+                if (item.Equals(cardOne))
                 {
                     firstCardWins = true;
+                    //form.addToHistory("this card wins " + cardOne.toString());
                     break;
                 }
-                else if (item == cardTwo)
+                else if (item.Equals(cardTwo))
                 {
                     firstCardWins = false;
+                    //form.addToHistory("this card wins " + cardTwo.toString());
                     break;
                 }
             }
