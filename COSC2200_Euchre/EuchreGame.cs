@@ -43,11 +43,13 @@ namespace COSC2200_Euchre
 
             if (suiteTrump > 1)
             {
-                card = deck.CardMaker(11, suiteTrump + 2);
+                card = deck.CardMaker(11, suiteTrump - 2);
+                
             }
             else
             {
-                card = deck.CardMaker(11, suiteTrump - 2);
+                card = deck.CardMaker(11, suiteTrump + 2);
+                
             }
             winningcards.Add(card);
 
@@ -323,7 +325,7 @@ namespace COSC2200_Euchre
             if (trumpCard != null)
             {
                 int worstCardInHand = 0;
-                currentTrump = trumpCard.cardRankNum;
+                currentTrump = trumpCard.cardSuiteNum;
                 int i = -1;
                 foreach (Card card in humanPlayer.cardsInHand)
                 {
@@ -449,6 +451,7 @@ namespace COSC2200_Euchre
         {
             if(trumpCard != null && humanPlayer.playedCard != null)
             {
+                
                 GenerateList(currentTrump, humanPlayer.playedCard.cardSuiteNum);
                 
                 List<Card> playableCards = new List<Card>();
@@ -497,8 +500,9 @@ namespace COSC2200_Euchre
                     }
                     if (!playCard)
                     {
+                        aiPlayer.playedCard = aiPlayer.cardsInHand[0];
                         aiPlayer.cardsInHand.Remove(aiPlayer.cardsInHand[0]);
-                        aiPlayer.playedCard = playableCards[0];
+                        
                     }
                     
                 }

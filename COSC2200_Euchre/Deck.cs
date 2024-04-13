@@ -87,10 +87,15 @@ namespace COSC2200_Euchre
                 strSuite = SuiteDiamonds;
                 red = true;
             }
-            else
+            else if (suite == 3)
             {
                 strSuite = SuiteSpades;
                 red = false;
+            }
+            else
+            {
+                red = true;
+                strSuite = "error";
             }
 
             return new Card(suite, rank, strSuite, strRank, red);
