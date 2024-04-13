@@ -230,11 +230,11 @@ namespace COSC2200_Euchre
             int diamonds = 0;
             int spades = 0;
 
-            foreach (Card card in aiPlayer.cardsInHand)
+            foreach (Card item in aiPlayer.cardsInHand)
             {
-                if (card.cardSuiteNum == 0){ hearts++; }
-                else if(card.cardSuiteNum == 1) { clubs++; }
-                else if (card.cardSuiteNum == 2) { diamonds++; }
+                if (item.cardSuiteNum == 0){ hearts++; }
+                else if(item.cardSuiteNum == 1) { clubs++; }
+                else if (item.cardSuiteNum == 2) { diamonds++; }
                 else { spades++; }
             }
 
